@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://4sdlicxtib0t"]
+
+[ext_resource type="Script" path="res://scenes/sea/game.gd" id="1_lkpqq"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="2_4svpd"]
+[ext_resource type="PackedScene" uid="uid://c11e8ah01c4cv" path="res://entities/player/player.tscn" id="2_iedmi"]
+[ext_resource type="Theme" uid="uid://ps5kwnepi662" path="res://ui/ui_theme.tres" id="3_3nnq8"]
+
+[sub_resource type="Sky" id="Sky_kcyx6"]
+
+[sub_resource type="Environment" id="Environment_adjph"]
+background_mode = 2
+sky = SubResource("Sky_kcyx6")
+tonemap_mode = 2
+fog_enabled = true
+fog_sky_affect = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia0nf"]
+albedo_color = Color(0.129412, 0.490196, 0.560784, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ovkgk"]
+material = SubResource("StandardMaterial3D_ia0nf")
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tuwu4"]
+size = Vector3(10, 1, 10)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_lkpqq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_adjph")
+
+[node name="Player" parent="." instance=ExtResource("2_iedmi")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -192.0
+offset_right = 550.0
+offset_bottom = -120.0
+grow_vertical = 0
+theme = ExtResource("3_3nnq8")
+script = ExtResource("2_4svpd")
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/MainMenu"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme = ExtResource("3_3nnq8")
+text = "Start game"
+
+[node name="QuitGameButton" type="Button" parent="CanvasLayer/MainMenu"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Quit game"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_ovkgk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_tuwu4")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/QuitGameButton" to="CanvasLayer/MainMenu" method="quit_game"]
