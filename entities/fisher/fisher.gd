@@ -22,7 +22,7 @@ func get_fish() -> void:
 	pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	animation_player.play('fishign_idle')
+	animation_player.play('fishing_idle')
 	if anim_name == 'fishing_cast':
 		is_fishing = true
 		bobber.freeze = false

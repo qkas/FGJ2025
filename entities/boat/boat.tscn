@@ -1,7 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://b2gkd0aemcldr"]
 
 [ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
-[ext_resource type="PackedScene" uid="uid://ck61khfbkmxfs" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
+[ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
+[ext_resource type="PackedScene" uid="uid://pl3r3bi0qftk" path="res://entities/boat/BoatModel.glb" id="2_xauyr"]
 
 [sub_resource type="Animation" id="Animation_efn4a"]
 length = 1.5
@@ -64,14 +65,11 @@ _data = {
 "initialize": SubResource("Animation_dav00")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_iee03"]
-size = Vector3(4, 1, 6)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ywqou"]
 size = Vector3(4, 1, 6)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ujoja"]
-size = Vector2(1.2, 1.2)
+size = Vector2(1.4, 1.4)
 
 [sub_resource type="Gradient" id="Gradient_eljyn"]
 offsets = PackedFloat32Array(0.361386, 0.767327, 1)
@@ -114,7 +112,7 @@ points_array = [NodePath("TR"), NodePath("TL"), NodePath("BL"), NodePath("BR")]
 min_max_rotation = Vector3(1, 5, 1)
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.173652, 0.984807, 0, -0.984807, 0.173652, 0, 18, 4)
+transform = Transform3D(1, 0, 0, 0, 0.173651, 0.984807, 0, -0.984807, 0.173651, 0, 18, 4)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
@@ -126,17 +124,17 @@ libraries = {
 "": SubResource("AnimationLibrary_utwrk")
 }
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_iee03")
+[node name="BoatModel" parent="." instance=ExtResource("2_xauyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ywqou")
 
 [node name="Fisher" parent="." instance=ExtResource("2_mt8hm")]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 1, 0.4, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.5, 0)
 
 [node name="Foam" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.99961, 0, 0, 0, 1.2904e-06, 3.78942, 0, -9.84027, 4.96923e-07, 0, 0.0329, 4.31193e-09)
+transform = Transform3D(7.99961, 0, 0, 0, 1.2904e-06, 3.78942, 0, -9.84027, 4.96923e-07, 0, 0.0329, -2)
 layers = 2
 mesh = SubResource("QuadMesh_ujoja")
 surface_material_override/0 = SubResource("StandardMaterial3D_oawqt")
