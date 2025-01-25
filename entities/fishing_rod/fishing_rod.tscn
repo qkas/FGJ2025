@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://blxmdkhae68r5"]
+
+[ext_resource type="PackedScene" uid="uid://drevmw603krf4" path="res://entities/fishing_rod/FishingRod.glb" id="1_fnf5l"]
+
+[node name="FishingRod2" instance=ExtResource("1_fnf5l")]
