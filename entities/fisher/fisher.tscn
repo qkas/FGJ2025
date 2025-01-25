@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck61khfbkmxfs"]
+
+[ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="1_mk8q1"]
+[ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher_model.tscn" id="2_pqhup"]
+
+[node name="Fisher" type="Node3D"]
+script = ExtResource("1_mk8q1")
+
+[node name="FisherModel" parent="." instance=ExtResource("2_pqhup")]
