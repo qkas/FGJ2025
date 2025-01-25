@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://vpxq3tr1lm2x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ys3q7"]
+bg_color = Color(0.352941, 0.843137, 0.494118, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ys3q7")
+value = 50.0
+show_percentage = false

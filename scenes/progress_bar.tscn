@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci2nsvaj568yk"]
+
+[ext_resource type="Texture2D" uid="uid://d3gogwloulxad" path="res://ui/checkbox.png" id="1_ddxbf"]
+[ext_resource type="Texture2D" uid="uid://dr7jis4qickxg" path="res://ui/checkmark.png" id="2_kcjia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ja8ik"]
+bg_color = Color(0.231373, 0.717647, 0, 0.654902)
+
+[node name="BoxContainer2" type="BoxContainer"]
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 50.0
+
+[node name="Label2" type="Label" parent="."]
+show_behind_parent = true
+layout_mode = 2
+text = "haloo kuuluuks tää"
+clip_text = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 3)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_ja8ik")
+value = 100.0
+show_percentage = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_ddxbf")
+offset = Vector2(-100, 135)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("2_kcjia")
+offset = Vector2(-145, 200)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
