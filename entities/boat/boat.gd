@@ -1,34 +1,68 @@
-extends CharacterBody3D
+extends RigidBody3D
+
+@export var buoyancy_power : float = 1.0
+@export var damper : float = 1.0
+@export var archimedes_force : float = 1.0
+@export var y_offset : float = -1.0
+@export var points_array : Array[Node3D]
+var water_manager : WaterManager
+var last_water_y : float
+@export var min_max_rotation : Vector3
+var stored_rot
+@export var fast_mode : bool = false
+var initialized := false
 
 @onready var camera_holder: Node3D = $CameraHolder
 @onready var animation_player: AnimationPlayer = $CameraHolder/AnimationPlayer
 
-const MAX_ZOOM: float = 1
-const MIN_ZOOM: float = -1
+var is_input_enabled: bool = false
 
-const SPEED = 5.0
+func _ready():
+	await get_tree().process_frame
+	water_manager = %WaterManager
+	if water_manager:
+		initialized = true
 
-func _physics_process(delta: float) -> void:
-	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction := (transform.basis * Vector3(0, 0, input_dir.y)).normalized()
-	rotate_y(deg_to_rad(input_dir.x))
+func animate_camera() -> void:
+	animation_player.play('initialize')
+	is_input_enabled = true
+
+func _physics_process(_delta):
+	if !initialized:
+		return
 	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	# fast mode is more performant so it will be used when the object is far away
+	if fast_mode:
+		var water_y = water_manager.fast_water_height(global_position)
+		
+		var k : float = (water_y - global_position.y)
+		if k > 1.0:
+			k = 1.0
+		elif k< 0.0:
+			k = 0.0
+			
+		var localDampingForce : float = -linear_velocity.y * damper * mass
+		var force : float = localDampingForce + sqrt(k) * archimedes_force
+		
+		apply_central_force(Vector3(0, 1, 0) * force * buoyancy_power * points_array.size())
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED*0.01)
-		velocity.z = move_toward(velocity.z, 0, SPEED*0.01)
-
-	move_and_slide()
-
-func _input(event: InputEvent) -> void:
-	if event.is_pressed():
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP and camera_holder.position.y < MAX_ZOOM:
-				camera_holder.position.y += 0.1
-			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and camera_holder.position.y > MIN_ZOOM:
-				camera_holder.position.y -= 0.1
-
-func camera_zoom_in():
-	animation_player.play("initialize")
+		for point in points_array:
+			var point_pos : Vector3 = global_position + (global_position - point.global_position)
+			point_pos.y += y_offset
+			
+			var water_y = water_manager.calc_water_height(point_pos)
+			if point_pos.y < water_y:
+				var k : float = (water_y - point_pos.y)
+				
+				k = clampf(k, 0, 1)
+					
+				var localDampingForce : float = -linear_velocity.y * damper * mass
+				var force : float = localDampingForce + sqrt(k) * archimedes_force
+				
+				apply_force(Vector3(0, 1, 0) * force * buoyancy_power, (global_position - point.global_position))
+	
+	# clamp rotation
+	var r_x = min(abs(rotation.x), min_max_rotation.x) * sign(rotation.x)
+	var r_y = min(abs(rotation.y), min_max_rotation.y) * sign(rotation.y)
+	var r_z = min(abs(rotation.z), min_max_rotation.z) * sign(rotation.z)
+	rotation = Vector3(r_x, r_y, r_z)

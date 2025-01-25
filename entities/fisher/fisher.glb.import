@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cjl31u2pmng5r"
-path="res://.godot/imported/fisher_model.glb-bb84d62361492bc60e80cc6d32d08a99.scn"
+path="res://.godot/imported/fisher.glb-3cb797cd23b861e1f7400b6e0d8e8bf0.scn"
 
 [deps]
 
-source_file="res://entities/fisher/fisher_model.glb"
-dest_files=["res://.godot/imported/fisher_model.glb-bb84d62361492bc60e80cc6d32d08a99.scn"]
+source_file="res://entities/fisher/fisher.glb"
+dest_files=["res://.godot/imported/fisher.glb-3cb797cd23b861e1f7400b6e0d8e8bf0.scn"]
 
 [params]
 

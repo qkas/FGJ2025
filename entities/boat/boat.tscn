@@ -1,105 +1,154 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcg8fh3r04t2h"]
+[gd_scene load_steps=15 format=3 uid="uid://b2gkd0aemcldr"]
 
-[ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_ofn0i"]
+[ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
+[ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
 
-[sub_resource type="Animation" id="Animation_6rhgj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 15, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.48353, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6rwih"]
+[sub_resource type="Animation" id="Animation_dav00"]
 resource_name = "initialize"
+length = 1.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.23333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 15, 0), Vector3(0, 8, 10)]
+"values": [Vector3(0, 18, 0), Vector3(0, 8, 10)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("..:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 3),
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.48353, 0, 0), Vector3(-0.698132, 0, 0)]
+"values": [Vector3(-1.39626, 0, 0), Vector3(-0.349066, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qrkx"]
+[sub_resource type="Animation" id="Animation_efn4a"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.39626, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 18, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utwrk"]
 _data = {
-"RESET": SubResource("Animation_6rhgj"),
-"initialize": SubResource("Animation_6rwih")
+"RESET": SubResource("Animation_efn4a"),
+"initialize": SubResource("Animation_dav00")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_iksx1"]
-size = Vector3(4, 4, 8)
+[sub_resource type="BoxMesh" id="BoxMesh_iee03"]
+size = Vector3(4, 1, 6)
 
-[sub_resource type="PrismMesh" id="PrismMesh_dpv1w"]
-size = Vector3(4, 4, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ywqou"]
+size = Vector3(4, 1, 6)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jxlmo"]
+[sub_resource type="QuadMesh" id="QuadMesh_ujoja"]
 
-[node name="Boat" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_ofn0i")
+[sub_resource type="Gradient" id="Gradient_eljyn"]
+offsets = PackedFloat32Array(0.361386, 0.767327, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.034914, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1mwl7"]
+gradient = SubResource("Gradient_eljyn")
+fill = 2
+fill_from = Vector2(0.507123, 0.487179)
+
+[sub_resource type="Gradient" id="Gradient_up7tb"]
+offsets = PackedFloat32Array(0.351485, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5u7t6"]
+frequency = 0.0357
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e1g60"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 0.789
+color_ramp = SubResource("Gradient_up7tb")
+noise = SubResource("FastNoiseLite_5u7t6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oawqt"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_1mwl7")
+detail_enabled = true
+detail_blend_mode = 2
+detail_albedo = SubResource("NoiseTexture2D_e1g60")
+
+[node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("points_array")]
+mass = 5.0
+can_sleep = false
+linear_damp = 4.0
+angular_damp = 4.0
+script = ExtResource("1_v7buv")
+archimedes_force = 20.0
+points_array = [NodePath("TR"), NodePath("TL"), NodePath("BL"), NodePath("BR")]
+min_max_rotation = Vector3(1, 1, 1)
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0871559, 0.996195, 0, -0.996195, 0.0871559, 0, 15, 0)
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 18, 4)
+top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
+cull_mask = 1048573
+current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraHolder"]
-root_node = NodePath("../Camera3D")
 libraries = {
-"": SubResource("AnimationLibrary_0qrkx")
+"": SubResource("AnimationLibrary_utwrk")
 }
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-mesh = SubResource("BoxMesh_iksx1")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 0, 0, -4)
-mesh = SubResource("PrismMesh_dpv1w")
+mesh = SubResource("BoxMesh_iee03")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_jxlmo")
+shape = SubResource("BoxShape3D_ywqou")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.930008, 0.36754, 0, -0.36754, 0.930008, 0, 1.17258, 0)
-light_color = Color(0.597176, 0.597176, 0.597176, 1)
-light_energy = 50.0
+[node name="Fisher" parent="." instance=ExtResource("2_mt8hm")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 1, 0.4, 0)
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 5)
+[node name="Foam" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.99961, 0, 0, 0, 1.2904e-06, 3.78942, 0, -9.84027, 4.96923e-07, 0, 0.0329, 4.31193e-09)
+layers = 2
+mesh = SubResource("QuadMesh_ujoja")
+surface_material_override/0 = SubResource("StandardMaterial3D_oawqt")
+
+[node name="TR" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="TL" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="BL" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="BR" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)

@@ -1,9 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck61khfbkmxfs"]
+[gd_scene load_steps=2 format=3 uid="uid://ccyuf7rupd4al"]
 
-[ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="1_mk8q1"]
-[ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher_model.tscn" id="2_pqhup"]
+[ext_resource type="PackedScene" uid="uid://cjl31u2pmng5r" path="res://entities/fisher/fisher.glb" id="1_if161"]
 
-[node name="Fisher" type="Node3D"]
-script = ExtResource("1_mk8q1")
+[node name="Fisher" instance=ExtResource("1_if161")]
 
-[node name="FisherModel" parent="." instance=ExtResource("2_pqhup")]
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.277986, -3.24983, -107.272)
+bones/0/rotation = Quaternion(-0.736219, -0.129513, 0.135833, 0.650198)
+bones/1/rotation = Quaternion(0.00302905, 0.00711956, 5.65938e-05, 0.99997)
+bones/2/rotation = Quaternion(0.049775, 0.014337, 0.0018045, 0.998656)
+bones/3/rotation = Quaternion(0.0497404, 0.0143725, 0.00236316, 0.998656)
+bones/4/rotation = Quaternion(-0.0367603, 0.0412881, 0.00804673, 0.998438)
+bones/5/rotation = Quaternion(0.0622378, 0.0713224, -0.0203278, 0.995302)
+bones/7/rotation = Quaternion(0.579243, 0.36063, -0.662079, 0.309959)
+bones/8/position = Vector3(-8.68364e-07, 28.0209, -2.48279e-05)
+bones/8/rotation = Quaternion(0.216565, 0.269303, 0.280387, 0.895521)
+bones/9/position = Vector3(-1.26965e-06, 40.2809, -3.7681e-06)
+bones/9/rotation = Quaternion(-0.0302255, -0.0359655, 0.677367, 0.734144)
+bones/10/position = Vector3(1.66893e-06, 35.0678, 4.74043e-06)
+bones/11/position = Vector3(-12.8994, 16.3737, 0.0775358)
+bones/11/rotation = Quaternion(0.674231, -0.283209, 0.558898, 0.390947)
+bones/12/position = Vector3(6.60747e-07, 27.982, 2.27483e-05)
+bones/12/rotation = Quaternion(0.162042, -0.186407, -0.42513, 0.870781)
+bones/13/position = Vector3(1.51312e-06, 40.2481, 8.19796e-06)
+bones/13/rotation = Quaternion(-0.0174719, 0.0350273, -0.661631, 0.748807)
+bones/14/position = Vector3(1.09673e-05, 35.0722, 3.53158e-06)
+bones/15/rotation = Quaternion(0.0243033, 0.127848, 0.989044, -0.0696838)
+bones/16/rotation = Quaternion(-0.256568, -0.076413, 0.0483511, 0.962287)
+bones/17/rotation = Quaternion(0.480071, -0.0352696, -0.0257065, 0.876143)
+bones/18/rotation = Quaternion(0.340629, -0.0773391, 0.025422, 0.936667)
+bones/20/rotation = Quaternion(-0.139754, -0.128656, 0.976835, 0.0985388)
+bones/21/rotation = Quaternion(-0.149973, 0.0788858, -0.0415403, 0.984662)
+bones/22/rotation = Quaternion(0.545319, 0.288831, 0.0281352, 0.786392)
+bones/23/position = Vector3(4.88013e-07, 35.4022, -2.52613e-06)
+bones/23/rotation = Quaternion(0.324351, 0.0781209, -0.0250961, 0.942371)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "fishing_idle"

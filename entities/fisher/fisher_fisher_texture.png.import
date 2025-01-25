@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpdkvjnwl0fg3"
-path.s3tc="res://.godot/imported/fisher_model_fisher_texture.png-a8910a40ea10b589a8ca3b88702bc215.s3tc.ctex"
+uid="uid://c4cbfou2gkp05"
+path.s3tc="res://.godot/imported/fisher_fisher_texture.png-3e818827e23336e44d6b37ff022c9f19.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://entities/fisher/fisher_model_fisher_texture.png"
-dest_files=["res://.godot/imported/fisher_model_fisher_texture.png-a8910a40ea10b589a8ca3b88702bc215.s3tc.ctex"]
+source_file="res://entities/fisher/fisher_fisher_texture.png"
+dest_files=["res://.godot/imported/fisher_fisher_texture.png-3e818827e23336e44d6b37ff022c9f19.s3tc.ctex"]
 
 [params]
 
