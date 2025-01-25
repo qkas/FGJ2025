@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc82fvh86c1y3"]
+
+[ext_resource type="PackedScene" uid="uid://boc6j80c55sl3" path="res://entities/fish/lionfish/Lionfish_1.glb" id="1_4qal8"]
+
+[node name="Lionfish_1" instance=ExtResource("1_4qal8")]
