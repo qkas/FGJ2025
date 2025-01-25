@@ -47,15 +47,13 @@ detail_enabled = true
 detail_blend_mode = 2
 detail_albedo = SubResource("NoiseTexture2D_e1g60")
 
-[node name="Bobber" type="RigidBody3D" node_paths=PackedStringArray("points_array")]
+[node name="Bobber" type="RigidBody3D"]
 mass = 0.01
 can_sleep = false
 lock_rotation = true
 freeze = true
 script = ExtResource("1_6kqvq")
 buoyancy_power = 20.0
-points_array = [NodePath("TR"), NodePath("TL"), NodePath("BL"), NodePath("BR")]
-fast_mode = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_wc278")
