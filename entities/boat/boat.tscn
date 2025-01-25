@@ -1,7 +1,34 @@
 [gd_scene load_steps=15 format=3 uid="uid://b2gkd0aemcldr"]
 
 [ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
-[ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
+[ext_resource type="PackedScene" uid="uid://ck61khfbkmxfs" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
+
+[sub_resource type="Animation" id="Animation_efn4a"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.39626, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 18, 4)]
+}
 
 [sub_resource type="Animation" id="Animation_dav00"]
 resource_name = "initialize"
@@ -29,33 +56,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-1.39626, 0, 0), Vector3(-0.349066, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_efn4a"]
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.39626, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 18, 4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_utwrk"]
@@ -114,7 +114,7 @@ points_array = [NodePath("TR"), NodePath("TL"), NodePath("BL"), NodePath("BR")]
 min_max_rotation = Vector3(1, 5, 1)
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 18, 4)
+transform = Transform3D(1, 0, 0, 0, 0.173652, 0.984807, 0, -0.984807, 0.173652, 0, 18, 4)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]

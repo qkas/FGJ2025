@@ -17,6 +17,8 @@ var initialized := false
 
 @onready var foam_camera: Node3D = $"../FoamViewport/Base"
 
+@onready var bubbles: Array[Node] = $"../Bubbles".get_children()
+
 const ACCELERATION: float = 6.0
 const MAX_SPEED: float = 10.0
 const TURN_SPEED: float = 5.0
@@ -107,3 +109,12 @@ func animate_camera() -> void:
 	animation_player.play('initialize')
 	camera_holder.top_level = false
 	is_input_enabled = true
+
+
+func check_distance() -> void:
+	for i in range(bubbles.size()):
+		if position.distance_to(bubbles[i].position) < 7:
+			print("close enough to fish")
+	#var distance = position.distance_to($"../Bubbles".position)
+	#print(distance)
+	

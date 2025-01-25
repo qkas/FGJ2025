@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://boirolhtx23x0"]
+[gd_scene load_steps=13 format=3 uid="uid://dtlt37yc6h5f2"]
 
 [ext_resource type="Script" path="res://water/water-manager.gd" id="1_o5y5g"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_o58l6"]
 [ext_resource type="PackedScene" uid="uid://b2gkd0aemcldr" path="res://entities/boat/boat.tscn" id="3_ibbvs"]
 [ext_resource type="Theme" uid="uid://ps5kwnepi662" path="res://ui/ui_theme.tres" id="3_uwe7x"]
 [ext_resource type="Material" uid="uid://cakn2wicml134" path="res://water/water_material.tres" id="5_jxwx4"]
+[ext_resource type="PackedScene" uid="uid://s8uxf234ania" path="res://ui/task_entry.tscn" id="5_q6hmb"]
+[ext_resource type="PackedScene" uid="uid://hvh21q682k31" path="res://entities/fishing_spot/bubble_scene.tscn" id="7_wcwri"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xcn30"]
 
@@ -42,8 +44,11 @@ environment = SubResource("Environment_bfrrs")
 
 [node name="Sunlight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
+light_color = Color(0.168195, 0.164933, 0.431963, 1)
 
 [node name="Boat" parent="." instance=ExtResource("3_ibbvs")]
+linear_damp = 4.0
+min_max_rotation = Vector3(1, 6, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,6 +74,8 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Quit game"
 
+[node name="TaskEntry" parent="CanvasLayer" instance=ExtResource("5_q6hmb")]
+
 [node name="FoamViewport" type="SubViewport" parent="."]
 canvas_cull_mask = 4293918720
 
@@ -90,6 +97,20 @@ surface_material_override/0 = ExtResource("5_jxwx4")
 remote_path = NodePath("../../FoamViewport/Base")
 update_rotation = false
 update_scale = false
+
+[node name="Bubbles" type="Node3D" parent="."]
+
+[node name="Bubbles4" parent="Bubbles" instance=ExtResource("7_wcwri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1131, 0, 63.8605)
+
+[node name="Bubbles3" parent="Bubbles" instance=ExtResource("7_wcwri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.9115, 0, 0)
+
+[node name="Bubbles2" parent="Bubbles" instance=ExtResource("7_wcwri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9533, 0, -48.558)
+
+[node name="Bubbles" parent="Bubbles" instance=ExtResource("7_wcwri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1131, 0, 0)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/StartGameButton" to="." method="start_game"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/QuitGameButton" to="." method="quit_game"]

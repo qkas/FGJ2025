@@ -6,6 +6,8 @@ extends Node3D
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("exit"):
 		quit_game()
+	if Input.is_action_just_pressed("camera_switch"):
+		$Boat.check_distance()
 
 func start_game() -> void:
 	boat.animate_camera()
@@ -13,3 +15,8 @@ func start_game() -> void:
 
 func quit_game() -> void:
 	get_tree().quit()
+
+func spawn_fishing_spots() -> void:
+	pass
+
+	
