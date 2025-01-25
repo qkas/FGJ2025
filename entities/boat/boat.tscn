@@ -71,6 +71,7 @@ size = Vector3(4, 1, 6)
 size = Vector3(4, 1, 6)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ujoja"]
+size = Vector2(1.2, 1.2)
 
 [sub_resource type="Gradient" id="Gradient_eljyn"]
 offsets = PackedFloat32Array(0.361386, 0.767327, 1)
@@ -106,12 +107,11 @@ detail_albedo = SubResource("NoiseTexture2D_e1g60")
 [node name="Boat" type="RigidBody3D" node_paths=PackedStringArray("points_array")]
 mass = 5.0
 can_sleep = false
-linear_damp = 4.0
 angular_damp = 4.0
 script = ExtResource("1_v7buv")
 archimedes_force = 20.0
 points_array = [NodePath("TR"), NodePath("TL"), NodePath("BL"), NodePath("BR")]
-min_max_rotation = Vector3(1, 1, 1)
+min_max_rotation = Vector3(1, 5, 1)
 
 [node name="CameraHolder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 18, 4)
