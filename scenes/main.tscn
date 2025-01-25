@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2gkd0aemcldr" path="res://entities/boat/boat.tscn" id="3_ibbvs"]
 [ext_resource type="Theme" uid="uid://ps5kwnepi662" path="res://ui/ui_theme.tres" id="3_uwe7x"]
 [ext_resource type="Material" uid="uid://cakn2wicml134" path="res://water/water_material.tres" id="5_jxwx4"]
-[ext_resource type="PackedScene" uid="uid://s8uxf234ania" path="res://ui/task_entry.tscn" id="5_q6hmb"]
+[ext_resource type="PackedScene" path="res://ui/task_entry.tscn" id="5_q6hmb"]
 [ext_resource type="PackedScene" uid="uid://hvh21q682k31" path="res://entities/fishing_spot/bubble_scene.tscn" id="7_wcwri"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xcn30"]

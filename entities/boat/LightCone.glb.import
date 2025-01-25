@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dypvfq2p0l571"
-path="res://.godot/imported/FishingRod.glb-a9bfe75fa396b1e7f8e758314d9a597b.scn"
+uid="uid://xjnwk0fqoi3p"
+path="res://.godot/imported/LightCone.glb-cad21efc86cc75ce89463d5579bc283d.scn"
 
 [deps]
 
-source_file="res://entities/fishing_rod/FishingRod.glb"
-dest_files=["res://.godot/imported/FishingRod.glb-a9bfe75fa396b1e7f8e758314d9a597b.scn"]
+source_file="res://entities/boat/LightCone.glb"
+dest_files=["res://.godot/imported/LightCone.glb-cad21efc86cc75ce89463d5579bc283d.scn"]
 
 [params]
 
