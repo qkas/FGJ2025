@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceqqsukgcnlw"
-path.s3tc="res://.godot/imported/SwordFish.png-42c98a09546fb32b053e5d0b57fc1b0e.s3tc.ctex"
+uid="uid://c1p7as0sjt5ms"
+path.s3tc="res://.godot/imported/SwordFish_SwordFish.png-0f099c3c390fae2e62123e72295c8096.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "ad74006d75b276d78c0ae3776409e3b3"
+}
 
 [deps]
 
-source_file="res://entities/fish/swordfish/SwordFish.png"
-dest_files=["res://.godot/imported/SwordFish.png-42c98a09546fb32b053e5d0b57fc1b0e.s3tc.ctex"]
+source_file="res://entities/fish/swordfish/SwordFish_SwordFish.png"
+dest_files=["res://.godot/imported/SwordFish_SwordFish.png-0f099c3c390fae2e62123e72295c8096.s3tc.ctex"]
 
 [params]
 
