@@ -27,9 +27,9 @@ fog_enabled = true
 background_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ynkkp"]
-size = Vector2(200, 200)
-subdivide_width = 200
-subdivide_depth = 200
+size = Vector2(5000, 5000)
+subdivide_width = 2000
+subdivide_depth = 2000
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_o58l6")

@@ -50,7 +50,6 @@ detail_albedo = SubResource("NoiseTexture2D_e1g60")
 [node name="Bobber" type="RigidBody3D"]
 mass = 0.01
 can_sleep = false
-lock_rotation = true
 freeze = true
 script = ExtResource("1_6kqvq")
 buoyancy_power = 20.0
