@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccyuf7rupd4al"]
+[gd_scene load_steps=5 format=3 uid="uid://ccyuf7rupd4al"]
 
 [ext_resource type="PackedScene" uid="uid://cjl31u2pmng5r" path="res://entities/fisher/fisher.glb" id="1_if161"]
 [ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="2_g4r6x"]
+[ext_resource type="PackedScene" uid="uid://dypvfq2p0l571" path="res://entities/fishing_rod/FishingRod.glb" id="3_5o6tj"]
 [ext_resource type="PackedScene" uid="uid://celai85mr4xg6" path="res://entities/bobber/bobber.tscn" id="3_p27mk"]
 
 [node name="Fisher" instance=ExtResource("1_if161")]
@@ -48,23 +49,26 @@ transform = Transform3D(0.376235, -0.743915, -0.552303, 0.312689, 0.663077, -0.6
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = "fishing_idle"
-blend_times = [&"fishing_idle", &"fishing_cast", 0.02, &"fishing_idle", &"fishing_idle", 0.02, &"fishing_idle", &"fishing_reel", 0.02, &"fishing_idle", &"t_pose", 0.02]
+[node name="FishingRod" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("3_5o6tj")]
+transform = Transform3D(-38.4586, -67.5047, -62.9608, 75.8491, 15.7641, -63.233, 52.6104, -72.0737, 45.1389, 11.106, 14.393, 26.9757)
 
-[node name="Bobber" parent="." index="2" instance=ExtResource("3_p27mk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.51988)
+[node name="Bobber" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod" index="1" instance=ExtResource("3_p27mk")]
+transform = Transform3D(0.99948, -0.00637507, 0.0316187, 0.0171263, 0.935566, -0.352738, -0.0273319, 0.353095, 0.935189, -0.0082683, 1.74634, -0.708688)
 mass = 1.0
 buoyancy_power = 2.0
 
-[node name="FishingTimer" type="Timer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="1"]
+unique_name_in_owner = true
+autoplay = "fishing_idle"
+blend_times = [&"fishing_idle", &"fishing_cast", 0.02, &"fishing_idle", &"fishing_idle", 0.02, &"fishing_idle", &"fishing_reel", 0.02, &"fishing_idle", &"t_pose", 0.02]
+
+[node name="FishingTimer" type="Timer" parent="." index="2"]
 one_shot = true
 
-[node name="CastingTimer" type="Timer" parent="." index="4"]
-wait_time = 2.0
+[node name="CastingTimer" type="Timer" parent="." index="3"]
 one_shot = true
 
+[connection signal="on_bobber_landed" from="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" to="." method="start_timer"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="on_bobber_landed" from="Bobber" to="." method="start_timer"]
 [connection signal="timeout" from="FishingTimer" to="." method="start_reeling"]
 [connection signal="timeout" from="CastingTimer" to="." method="throw_hook"]

@@ -17,8 +17,6 @@ var initialized := false
 
 @onready var foam_camera: Node3D = $"../FoamViewport/Base"
 
-@onready var bubbles: Array[Node] = $"../Bubbles".get_children()
-
 const ACCELERATION: float = 6.0
 const MAX_SPEED: float = 10.0
 const TURN_SPEED: float = 5.0
@@ -47,6 +45,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# apply forward/backward movement
 	forward_input = Input.get_action_strength("up") - Input.get_action_strength("down")
 	if forward_input != 0:
+		if $Fisher/AnimationPlayer.current_animation != 'fishing_idle':
+			$Fisher.cancel_fishing()
 		var force = forward_input * forward_dir * ACCELERATION
 		state.apply_central_force(force * 10)
 	
@@ -109,12 +109,3 @@ func animate_camera() -> void:
 	animation_player.play('initialize')
 	camera_holder.top_level = false
 	is_input_enabled = true
-
-
-func check_distance() -> void:
-	for i in range(bubbles.size()):
-		if position.distance_to(bubbles[i].position) < 7:
-			print("close enough to fish")
-	#var distance = position.distance_to($"../Bubbles".position)
-	#print(distance)
-	

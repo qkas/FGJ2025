@@ -1,14 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://celai85mr4xg6"]
+[gd_scene load_steps=11 format=3 uid="uid://celai85mr4xg6"]
 
 [ext_resource type="Script" path="res://entities/bobber/bobber.gd" id="1_6kqvq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcwg5"]
-albedo_color = Color(0.9986, 0.419606, 0.386926, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_wc278"]
-material = SubResource("StandardMaterial3D_lcwg5")
-radius = 0.1
-height = 0.25
+[ext_resource type="PackedScene" uid="uid://bikhx0qpn8bmq" path="res://entities/bobber/Bobber.glb" id="2_mbyy7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ywqou"]
 size = Vector3(4, 1, 6)
@@ -54,12 +47,11 @@ freeze = true
 script = ExtResource("1_6kqvq")
 buoyancy_power = 20.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_wc278")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ywqou")
+
+[node name="Bobber" parent="." instance=ExtResource("2_mbyy7")]
 
 [node name="Foam" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)

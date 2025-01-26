@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
 [ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
 [ext_resource type="PackedScene" uid="uid://pl3r3bi0qftk" path="res://entities/boat/BoatModel.glb" id="2_xauyr"]
-[ext_resource type="PackedScene" uid="uid://c6kcoek2deegc" path="res://entities/boat/light_cone.tscn" id="4_rlok0"]
+[ext_resource type="PackedScene" uid="uid://c5cm1hf23n1wu" path="res://entities/boat/light_cone.tscn" id="4_rlok0"]
 
 [sub_resource type="Animation" id="Animation_efn4a"]
 length = 1.5
@@ -118,7 +118,7 @@ light_color = Color(1, 0.113725, 0.129412, 1)
 light_energy = 3.586
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 20, 3)
+transform = Transform3D(1, 0, 0, 0, 0.422622, 0.906306, 0, -0.906306, 0.422622, 0, 20, 3)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]

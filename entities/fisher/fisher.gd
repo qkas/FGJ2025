@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var bobber: RigidBody3D = $Bobber
+@onready var bobber: RigidBody3D = $Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber
+@onready var bobber_initial_position: Vector3 = bobber.position
 
 var cast_strength : float = 2.2
 
@@ -20,8 +21,13 @@ func _input(_event: InputEvent) -> void:
 			animation_player.play("fishing_idle")
 
 func cancel_fishing() -> void:
-	animation_player.stop()
 	animation_player.play('fishing_idle')
+	bobber.is_flying = false
+	bobber.freeze = true
+	bobber.position = bobber_initial_position
+
+func reel_hook() -> void:
+	pass
 
 func throw_hook() -> void:
 	bobber.freeze = false
@@ -39,10 +45,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'fishing_cast':
 		animation_player
 	if anim_name == 'fishing_reel':
-		get_random_fish()
-		bobber.freeze = true
-		animation_player.stop()
-		animation_player.play('fishing_idle')
+		cancel_fishing()
+		$/root/Game.get_random_fish()
 
 func start_reeling() -> void: # on timer timeout
 	animation_player.play('fishing_reel')
