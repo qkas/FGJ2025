@@ -5,7 +5,10 @@ extends Node3D
 
 const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
-const fishes: Array[String] = ['a Swordfish', 'a Lionfish', 'an Octopus', 'a Blue shark']
+var fishes: Array[String] = ['a Swordfish', 'a Lionfish', 'an Octopus', 'a Blue shark']
+var trash: Array[String] = ['trash', 'trash', 'trash']
+
+var is_pike_roaming: bool = false
 
 var game_started: bool = false
 
@@ -24,10 +27,24 @@ func start_game() -> void:
 	boat.animate_camera()
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/TaskContainer.show()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func get_random_fish() -> void:
+func get_random_item() -> void:
+	var entries = $CanvasLayer/TaskContainer.get_children()
 	print("fish got got")
+	if randi() % 10 > 1: # 90% chance for fish 
+		var index = randi() % entries.size()
+		var random_entry = entries[index]
+		random_entry.play_animation("check_done")
+		display_message("You fished up %s!" % fishes[index])
+	else:  # 10% chance for trash
+		display_message("You fished up trash! keep looking.")
+
+func display_message(message: String) -> void:
+	$CanvasLayer/Label.text = message
+	$CanvasLayer/Label/MessageTimer.start()
+
+func clear_message() -> void:
+	$CanvasLayer/Label.text = ""
 
 func quit_game() -> void:
 	get_tree().quit()

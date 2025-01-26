@@ -17,6 +17,7 @@ var initialized := false
 
 @onready var foam_camera: Node3D = $"../FoamViewport/Base"
 
+var is_mouse_input_enabled: bool = false
 const mouse_sens: float = 1.6
 
 const ACCELERATION: float = 6.0
@@ -31,7 +32,7 @@ var turn_input: float = 0.0
 var is_input_enabled: bool = false
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and $/root/Main.game_started:
+	if event is InputEventMouseMotion and is_mouse_input_enabled:
 		camera_holder.rotate_y(deg_to_rad(-event.relative.x * mouse_sens) * 0.1)
 
 func _ready():
@@ -39,6 +40,10 @@ func _ready():
 	water_manager = %WaterManager
 	if water_manager:
 		initialized = true
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		is_mouse_input_enabled = true
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if not is_input_enabled:

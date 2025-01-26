@@ -85,6 +85,24 @@ offset_bottom = -238.0
 grow_vertical = 0
 theme = ExtResource("3_uwe7x")
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -94.0
+offset_right = 20.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_uwe7x")
+
+[node name="MessageTimer" type="Timer" parent="CanvasLayer/Label"]
+wait_time = 5.0
+one_shot = true
+
 [node name="FoamViewport" type="SubViewport" parent="."]
 canvas_cull_mask = 4293918720
 
@@ -109,3 +127,4 @@ update_scale = false
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/StartGameButton" to="." method="start_game"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/QuitGameButton" to="." method="quit_game"]
+[connection signal="timeout" from="CanvasLayer/Label/MessageTimer" to="." method="clear_message"]

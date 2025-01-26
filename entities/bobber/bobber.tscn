@@ -43,6 +43,7 @@ detail_albedo = SubResource("NoiseTexture2D_e1g60")
 [node name="Bobber" type="RigidBody3D"]
 mass = 0.01
 can_sleep = false
+lock_rotation = true
 freeze = true
 script = ExtResource("1_6kqvq")
 buoyancy_power = 20.0
@@ -58,6 +59,12 @@ transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 
 layers = 2
 mesh = SubResource("QuadMesh_ujoja")
 surface_material_override/0 = SubResource("StandardMaterial3D_oawqt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+light_color = Color(1, 0.599765, 0.20322, 1)
+light_energy = 0.5
+omni_range = 1.0
 
 [node name="TR" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)

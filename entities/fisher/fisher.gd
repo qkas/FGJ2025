@@ -4,7 +4,7 @@ extends Node3D
 @onready var bobber: RigidBody3D = $Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber
 @onready var bobber_initial_position: Vector3 = bobber.position
 
-var cast_strength : float = 4.5
+var cast_strength : float = 5
 
 var timer_range_min: float = 3
 var timer_range_max: float = 12
@@ -34,7 +34,7 @@ func throw_hook() -> void:
 	bobber.reparent(get_tree().root)
 	bobber.freeze = false
 	bobber.is_flying = true
-	var global_direction = global_transform.basis * Vector3(0, 2, -1)
+	var global_direction = global_transform.basis * Vector3(0, 1.6, -1)
 	bobber.apply_impulse(global_direction * cast_strength)
 
 func start_timer() -> void: # called on bobber landed 
@@ -43,7 +43,7 @@ func start_timer() -> void: # called on bobber landed
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'fishing_reel':
 		cancel_fishing()
-		$/root/Game.get_random_fish()
+		$/root/Main.get_random_item()
 
 func start_reeling() -> void: # on timer timeout
 	animation_player.play('fishing_reel')
