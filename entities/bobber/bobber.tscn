@@ -63,7 +63,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oawqt")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 light_color = Color(1, 0.599765, 0.20322, 1)
-light_energy = 0.5
 omni_range = 1.0
 
 [node name="TR" type="Marker3D" parent="."]

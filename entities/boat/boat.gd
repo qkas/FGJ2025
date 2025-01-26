@@ -15,12 +15,10 @@ var initialized := false
 @onready var camera_holder: Node3D = $CameraHolder
 @onready var animation_player: AnimationPlayer = $CameraHolder/AnimationPlayer
 
-@onready var foam_camera: Node3D = $"../FoamViewport/Base"
-
 var is_mouse_input_enabled: bool = false
 const mouse_sens: float = 1.6
 
-const ACCELERATION: float = 6.0
+const ACCELERATION: float = 12.0
 const MAX_SPEED: float = 10.0
 const TURN_SPEED: float = 5.0
 const MAX_TORQUE: float = 6.0
@@ -44,6 +42,7 @@ func _ready():
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		is_mouse_input_enabled = true
+		$/root/Main.display_message("press [w], [a], [s], [d] to move around OR [space] to fish")
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if not is_input_enabled:
@@ -56,8 +55,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	# apply forward/backward movement
 	forward_input = Input.get_action_strength("up") - Input.get_action_strength("down")
 	if forward_input != 0:
-		if $Fisher/AnimationPlayer.current_animation != 'fishing_idle':
-			$Fisher.cancel_fishing()
 		var force = forward_input * forward_dir * ACCELERATION
 		state.apply_central_force(force * 10)
 	

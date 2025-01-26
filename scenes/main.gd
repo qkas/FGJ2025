@@ -5,8 +5,7 @@ extends Node3D
 
 const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
-var fishes: Array[String] = ['a Swordfish', 'a Lionfish', 'an Octopus', 'a Blue shark']
-var trash: Array[String] = ['trash', 'trash', 'trash']
+var fishes: Array[String] = ['Swordfish', 'Lionfish', 'Squid', 'Blue shark']
 
 var is_pike_roaming: bool = false
 
@@ -19,7 +18,7 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	for fish in fishes:
 		var task_entry = TASK_ENTRY.instantiate()
-		task_entry.set_label("Catch %s." % fish)
+		task_entry.set_label("Catch a %s." % fish)
 		$CanvasLayer/TaskContainer.add_child(task_entry)
 
 func start_game() -> void:

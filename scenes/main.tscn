@@ -148,6 +148,6 @@ remote_path = NodePath("../../FoamViewport/Base")
 update_rotation = false
 update_scale = false
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/StartGameButton" to="." method="start_game"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/QuitGameButton" to="." method="quit_game"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/StartGameButton" to="." method="start_game"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/QuitGameButton" to="." method="quit_game"]
 [connection signal="timeout" from="CanvasLayer/Label/MessageTimer" to="." method="clear_message"]
