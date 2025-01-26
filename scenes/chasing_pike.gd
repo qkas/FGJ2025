@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 
 func hide_boat():
 	$"../../Boat".hide()
+	$/root/Main.display_message("You got eaten by the big pike!")
 
 func end_game():
 	get_tree().reload_current_scene()

@@ -5,7 +5,9 @@ extends Node3D
 
 const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
-var fishes: Array[String] = ['Boot', 'Swordfish', 'Lionfish', 'Squid', 'Blue shark']
+var fishes: Array[String] = ['Lionfish', 'Blue shark', 'Swordfish', 'Squid']
+
+var fish_count: int = len(fishes)
 
 var is_pike_roaming: bool = false
 
@@ -31,16 +33,18 @@ func start_game() -> void:
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/TaskContainer.show()
 
-func get_random_item() -> void:
-	var entries = $CanvasLayer/TaskContainer.get_children()
-	print("fish got got")
-	if randi() % 10 > 1: # 90% chance for fish 
-		var index = randi() % entries.size()
-		var random_entry = entries[index]
-		random_entry.play_animation("check_done")
-		display_message("You fished up %s!" % fishes[index])
-	else:  # 10% chance for trash
-		display_message("You fished up trash! keep looking.")
+func mark_task_done(index: int) -> void:
+	$CanvasLayer/TaskContainer.get_child(index).check_task()
+	fish_count -= 1
+	if fish_count == 0:
+		display_message("You won the game, congratulations!")
+		var timer = Timer.new()
+		get_tree().root.add_child(timer)
+		timer.start(1)
+		timer.timeout.connect(end_game)
+
+func end_game():
+	get_tree().reload_current_scene()
 
 func display_message(message: String) -> void:
 	$CanvasLayer/Label.text = message
@@ -51,8 +55,3 @@ func clear_message() -> void:
 
 func quit_game() -> void:
 	get_tree().quit()
-
-func spawn_fishing_spots() -> void:
-	pass
-
-	

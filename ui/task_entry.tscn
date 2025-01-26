@@ -10,6 +10,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y56xo"]
 bg_color = Color(0.231373, 0.717647, 0, 0.654902)
 
+[sub_resource type="Animation" id="Animation_v80wc"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_corsa"]
 resource_name = "progress_bar"
 length = 2.0
@@ -36,9 +39,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.0]
 }
-
-[sub_resource type="Animation" id="Animation_v80wc"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0poy"]
 _data = {

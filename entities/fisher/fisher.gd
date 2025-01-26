@@ -46,6 +46,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		current_fishable.hide() # hide from bober
 		var index = current_fishable.get_index()
 		$StaticFishables.get_child(index).show()
+		index -= 1
+		if index != 0:
+			$/root/Main.mark_task_done(index)
 
 func start_reeling() -> void: # on timer timeout
 	bobber.reparent($Armature/Skeleton3D/BoneAttachment3D/FishingRod)
@@ -56,5 +59,5 @@ func start_reeling() -> void: # on timer timeout
 	current_fishable = fishables.pick_random()
 	current_fishable.show()
 	fishable_boat_pos = current_fishable.global_position
-	current_fishable.position = bobber.position
-	current_fishable.rotation = bobber.rotation
+	current_fishable.global_position = bobber.global_position
+	current_fishable.global_rotation = bobber.global_rotation
