@@ -10,6 +10,7 @@ var fishes: Array[String] = ['Swordfish', 'Lionfish', 'Squid', 'Blue shark']
 var is_pike_roaming: bool = false
 
 var game_started: bool = false
+var game_over : bool = false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("exit"):

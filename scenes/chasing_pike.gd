@@ -1,8 +1,16 @@
 extends CharacterBody3D
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-
+@onready var boat = $"../../Boat"
 var SPEED = 1.5
+@onready var chasing_pikes: Node3D = $".."
+
+var game_over : bool = false
+
+func _process(delta: float) -> void:
+	if position.distance_to(boat.position) < 7 and not game_over:
+		boat.get_node("Pike/AnimationPlayer").play("attack")
+		game_over = true
 
 func _physics_process(delta: float) -> void:
 	var current_location = global_transform.origin

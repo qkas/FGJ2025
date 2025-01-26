@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtlt37yc6h5f2"]
+[gd_scene load_steps=18 format=3 uid="uid://dtlt37yc6h5f2"]
 
 [ext_resource type="Script" path="res://water/water-manager.gd" id="1_o5y5g"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_o58l6"]
 [ext_resource type="PackedScene" uid="uid://b2gkd0aemcldr" path="res://entities/boat/boat.tscn" id="3_ibbvs"]
 [ext_resource type="Theme" uid="uid://ps5kwnepi662" path="res://ui/ui_theme.tres" id="3_uwe7x"]
+[ext_resource type="PackedScene" uid="uid://da35ad7h1mx1f" path="res://entities/pike.tscn" id="4_ke2xv"]
 [ext_resource type="Material" uid="uid://cakn2wicml134" path="res://water/water_material.tres" id="5_jxwx4"]
 [ext_resource type="Script" path="res://scenes/chasing_pike.gd" id="6_bahyj"]
 [ext_resource type="PackedScene" uid="uid://hvh21q682k31" path="res://entities/fishing_spot/bubble_scene.tscn" id="7_yxg2c"]
@@ -62,6 +63,8 @@ light_color = Color(0.168195, 0.164933, 0.431963, 1)
 [node name="Boat" parent="." instance=ExtResource("3_ibbvs")]
 linear_damp = 4.0
 min_max_rotation = Vector3(1, 6, 1)
+
+[node name="Pike" parent="Boat" instance=ExtResource("4_ke2xv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
