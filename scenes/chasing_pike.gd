@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		timer.timeout.connect(hide_boat)
 		var timer2 = Timer.new()
 		get_tree().root.add_child(timer2)
-		timer2.start(2)
+		timer2.start(2.7)
 		timer2.timeout.connect(end_game)
 
 func hide_boat():

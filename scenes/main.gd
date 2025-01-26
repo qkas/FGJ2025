@@ -36,11 +36,11 @@ func start_game() -> void:
 func mark_task_done(index: int) -> void:
 	$CanvasLayer/TaskContainer.get_child(index).check_task()
 	fish_count -= 1
-	if fish_count == 0:
+	if fish_count == -1:
 		display_message("You won the game, congratulations!")
 		var timer = Timer.new()
 		get_tree().root.add_child(timer)
-		timer.start(1)
+		timer.start(1.7)
 		timer.timeout.connect(end_game)
 
 func end_game():
