@@ -34,7 +34,7 @@ func get_random_item() -> void:
 	if randi() % 10 > 1: # 90% chance for fish 
 		var index = randi() % entries.size()
 		var random_entry = entries[index]
-		random_entry.check_task()
+		random_entry.play_animation("check_done")
 		display_message("You fished up %s!" % fishes[index])
 	else:  # 10% chance for trash
 		display_message("You fished up trash! keep looking.")
