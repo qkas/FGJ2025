@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtlt37yc6h5f2"]
+[gd_scene load_steps=12 format=3 uid="uid://dtlt37yc6h5f2"]
 
 [ext_resource type="Script" path="res://water/water-manager.gd" id="1_o5y5g"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_o58l6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cakn2wicml134" path="res://water/water_material.tres" id="5_jxwx4"]
 [ext_resource type="Script" path="res://scenes/chasing_pike.gd" id="6_bahyj"]
 [ext_resource type="PackedScene" uid="uid://hvh21q682k31" path="res://entities/fishing_spot/bubble_scene.tscn" id="7_yxg2c"]
+[ext_resource type="AudioStream" uid="uid://cikk7goglpdgx" path="res://audio/click.mp3" id="6_t4dfh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xcn30"]
 
@@ -260,6 +261,8 @@ shape = SubResource("CapsuleShape3D_xhw7n")
 
 [node name="Bubbles" parent="ChasingPikes/ChasingPike4" instance=ExtResource("7_yxg2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t4dfh")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/StartGameButton" to="." method="start_game"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/QuitGameButton" to="." method="quit_game"]

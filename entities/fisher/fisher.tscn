@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccyuf7rupd4al"]
+[gd_scene load_steps=12 format=3 uid="uid://ccyuf7rupd4al"]
 
 [ext_resource type="PackedScene" uid="uid://cjl31u2pmng5r" path="res://entities/fisher/fisher.glb" id="1_if161"]
 [ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="2_g4r6x"]
 [ext_resource type="PackedScene" uid="uid://dypvfq2p0l571" path="res://entities/fishing_rod/FishingRod.glb" id="3_5o6tj"]
 [ext_resource type="PackedScene" uid="uid://celai85mr4xg6" path="res://entities/bobber/bobber.tscn" id="3_p27mk"]
 [ext_resource type="PackedScene" uid="uid://b1x07eq64y2sd" path="res://entities/props/trash/boot/boot.tscn" id="5_gp521"]
+[ext_resource type="AudioStream" uid="uid://brycq67y8hu00" path="res://audio/woosh.mp3" id="5_qnhlm"]
+[ext_resource type="AudioStream" uid="uid://cgdxc00dup2k8" path="res://audio/reeling.mp3" id="6_7svvc"]
 [ext_resource type="PackedScene" uid="uid://cc82fvh86c1y3" path="res://entities/fish/lionfish/lionfish.tscn" id="6_c0oly"]
+[ext_resource type="AudioStream" uid="uid://u76y8m6fpj6u" path="res://audio/splash.mp3" id="7_bfy5c"]
 [ext_resource type="PackedScene" uid="uid://ddinmtr2h3t2p" path="res://entities/fish/blueshark/blue_shark.tscn" id="7_mmkhw"]
 [ext_resource type="PackedScene" uid="uid://dfpiix67do6rg" path="res://entities/fish/swordfish/sword_fish.tscn" id="8_4nftq"]
 
@@ -91,6 +94,15 @@ visible = false
 
 [node name="Swordfish" parent="Fishables" index="3" instance=ExtResource("8_4nftq")]
 visible = false
+
+[node name="Woosh" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("5_qnhlm")
+
+[node name="Reeling" type="AudioStreamPlayer3D" parent="." index="6"]
+stream = ExtResource("6_7svvc")
+
+[node name="Splash" type="AudioStreamPlayer3D" parent="." index="7"]
+stream = ExtResource("7_bfy5c")
 
 [connection signal="on_bobber_landed" from="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" to="." method="start_timer"]
 [connection signal="timeout" from="FishingTimer" to="." method="start_reeling"]

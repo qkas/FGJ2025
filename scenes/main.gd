@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	get_tree().call_group("chasing_pike", "update_target_location",boat.global_transform.origin)
 
 func start_game() -> void:
+	$ClickSFX.play()
 	game_started = true
 	boat.animate_camera()
 	$CanvasLayer/MainMenu.hide()
@@ -49,6 +50,7 @@ func clear_message() -> void:
 	$CanvasLayer/Label.text = ""
 
 func quit_game() -> void:
+	$ClickSFX.play()
 	get_tree().quit()
 
 func spawn_fishing_spots() -> void:
