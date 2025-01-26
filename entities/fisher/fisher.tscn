@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccyuf7rupd4al"]
+[gd_scene load_steps=13 format=3 uid="uid://ccyuf7rupd4al"]
 
 [ext_resource type="PackedScene" uid="uid://cjl31u2pmng5r" path="res://entities/fisher/fisher.glb" id="1_if161"]
 [ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="2_g4r6x"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://u76y8m6fpj6u" path="res://audio/splash.mp3" id="7_bfy5c"]
 [ext_resource type="PackedScene" uid="uid://ddinmtr2h3t2p" path="res://entities/fish/blueshark/blue_shark.tscn" id="7_mmkhw"]
 [ext_resource type="PackedScene" uid="uid://dfpiix67do6rg" path="res://entities/fish/swordfish/sword_fish.tscn" id="8_4nftq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mlydw"]
 
 [node name="Fisher" instance=ExtResource("1_if161")]
 script = ExtResource("2_g4r6x")
@@ -67,6 +69,53 @@ transform = Transform3D(0.999482, -0.00637488, 0.031619, 0.0171266, 0.935567, -0
 mass = 1.0
 buoyancy_power = 2.0
 
+[node name="Fishables" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" index="8"]
+transform = Transform3D(1, 0.000363511, 0.000284798, -0.000363382, 1, -0.00019047, -0.000285354, 0.000190154, 1, 2.64943e-05, 0.00028348, 0.000222802)
+
+[node name="BootRB" type="RigidBody3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="0"]
+transform = Transform3D(1, 1.28057e-09, -3.72529e-09, -1.39698e-09, 1, -3.72529e-09, 3.72529e-09, 3.72529e-09, 1, 0, 0, 0)
+freeze = true
+
+[node name="Boot" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/BootRB" index="0" instance=ExtResource("5_gp521")]
+transform = Transform3D(1, 3.0268e-09, -7.45058e-09, -1.28057e-09, 1, 0, 0, 0, 1, -0.00684059, -0.289924, -0.00986373)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/BootRB" index="1"]
+transform = Transform3D(0.498102, 0.0153497, 0.0651688, -0.0407596, 0.000324042, 0.797337, 0.0152722, -0.499764, 0.00251857, 0, 0, 0)
+shape = SubResource("BoxShape3D_mlydw")
+
+[node name="LionfishRB" type="RigidBody3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="1"]
+transform = Transform3D(1, 1.28057e-09, -3.72529e-09, -1.39698e-09, 1, -3.72529e-09, 3.72529e-09, 3.72529e-09, 1, 0, 0, 0)
+freeze = true
+
+[node name="Lionfish" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/LionfishRB" index="0" instance=ExtResource("6_c0oly")]
+transform = Transform3D(1, 1.62981e-09, -3.72529e-09, 0, 1, 3.72529e-09, -3.72529e-09, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/LionfishRB" index="1"]
+transform = Transform3D(0.498102, 0.0153497, 0.0651688, -0.0407596, 0.000324047, 0.797337, 0.0152722, -0.499764, 0.00251858, 0, 0, 0)
+shape = SubResource("BoxShape3D_mlydw")
+
+[node name="BlueSharkRB" type="RigidBody3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="2"]
+transform = Transform3D(1, 1.28057e-09, -3.72529e-09, -1.39698e-09, 1, -3.72529e-09, 3.72529e-09, 3.72529e-09, 1, 0, 0, 0)
+freeze = true
+
+[node name="BlueShark" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/BlueSharkRB" index="0" instance=ExtResource("7_mmkhw")]
+transform = Transform3D(0.2, 0, 7.45058e-10, 0, 0.2, 0, -7.45058e-10, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/BlueSharkRB" index="1"]
+transform = Transform3D(0.498102, 0.0153497, 0.0651688, -0.0407596, 0.000324042, 0.797337, 0.0152722, -0.499764, 0.00251857, 0, 0, 0)
+shape = SubResource("BoxShape3D_mlydw")
+
+[node name="SwordfishRB" type="RigidBody3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="3"]
+transform = Transform3D(1, 1.28057e-09, -3.72529e-09, -1.39698e-09, 1, -3.72529e-09, 3.72529e-09, 3.72529e-09, 1, 0, 0, 0)
+freeze = true
+
+[node name="Swordfish" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/SwordfishRB" index="0" instance=ExtResource("8_4nftq")]
+transform = Transform3D(0.2, 7.85803e-10, -4.65661e-09, -1.16415e-10, 0.2, 2.79397e-09, 9.31323e-10, -1.39698e-09, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables/SwordfishRB" index="1"]
+transform = Transform3D(0.498102, 0.0153497, 0.0651688, -0.0407596, 0.000324042, 0.797337, 0.0152722, -0.499764, 0.00251857, 0, 0, 0)
+shape = SubResource("BoxShape3D_mlydw")
+
 [node name="AnimationPlayer" parent="." index="1"]
 unique_name_in_owner = true
 autoplay = "fishing_idle"
@@ -80,20 +129,9 @@ one_shot = true
 wait_time = 1.45
 one_shot = true
 
-[node name="Fishables" type="Node3D" parent="." index="4"]
-transform = Transform3D(0.898292, -0.0229127, 0.0504988, 0.0212176, 0.899231, 0.030594, -0.0512343, -0.0293448, 0.898064, -0.0280221, 2.38796, -1.48418)
-
-[node name="Boot" parent="Fishables" index="0" instance=ExtResource("5_gp521")]
-visible = false
-
-[node name="Lionfish" parent="Fishables" index="1" instance=ExtResource("6_c0oly")]
-visible = false
-
-[node name="BlueShark" parent="Fishables" index="2" instance=ExtResource("7_mmkhw")]
-visible = false
-
-[node name="Swordfish" parent="Fishables" index="3" instance=ExtResource("8_4nftq")]
-visible = false
+[node name="ThrowDelay" type="Timer" parent="." index="4"]
+wait_time = 2.5
+one_shot = true
 
 [node name="Woosh" type="AudioStreamPlayer3D" parent="." index="5"]
 stream = ExtResource("5_qnhlm")
@@ -105,5 +143,7 @@ stream = ExtResource("6_7svvc")
 stream = ExtResource("7_bfy5c")
 
 [connection signal="on_bobber_landed" from="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" to="." method="start_timer"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="FishingTimer" to="." method="start_reeling"]
 [connection signal="timeout" from="CastingTimer" to="." method="throw_hook"]
+[connection signal="timeout" from="ThrowDelay" to="." method="throw_fish_behind"]

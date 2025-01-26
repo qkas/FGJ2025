@@ -31,17 +31,6 @@ func start_game() -> void:
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/TaskContainer.show()
 
-func get_random_item() -> void:
-	var entries = $CanvasLayer/TaskContainer.get_children()
-	print("fish got got")
-	if randi() % 10 > 1: # 90% chance for fish 
-		var index = randi() % entries.size()
-		var random_entry = entries[index]
-		random_entry.play_animation("check_done")
-		display_message("You fished up %s!" % fishes[index])
-	else:  # 10% chance for trash
-		display_message("You fished up trash! keep looking.")
-
 func display_message(message: String) -> void:
 	$CanvasLayer/Label.text = message
 	$CanvasLayer/Label/MessageTimer.start()
@@ -52,8 +41,3 @@ func clear_message() -> void:
 func quit_game() -> void:
 	$ClickSFX.play()
 	get_tree().quit()
-
-func spawn_fishing_spots() -> void:
-	pass
-
-	
