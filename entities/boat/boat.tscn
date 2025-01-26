@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2gkd0aemcldr"]
+[gd_scene load_steps=16 format=3 uid="uid://b2gkd0aemcldr"]
 
 [ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
 [ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
 [ext_resource type="PackedScene" uid="uid://pl3r3bi0qftk" path="res://entities/boat/BoatModel.glb" id="2_xauyr"]
 [ext_resource type="PackedScene" uid="uid://c5cm1hf23n1wu" path="res://entities/boat/light_cone.tscn" id="4_rlok0"]
-[ext_resource type="AudioStream" uid="uid://3vxvjtxrms4v" path="res://audio/motor.mp3" id="5_imbr4"]
 
 [sub_resource type="Animation" id="Animation_efn4a"]
 length = 1.5
@@ -166,9 +165,5 @@ transform = Transform3D(1, 0, 0, 0, 0.955829, 0.293924, 0, -0.293924, 0.955829, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.650905, 3.6082, -1.44684)
 light_color = Color(1, 1, 0.568627, 1)
 light_energy = 4.556
-
-[node name="MotorSFX" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_imbr4")
-volume_db = -30.0
 
 [connection signal="animation_finished" from="CameraHolder/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

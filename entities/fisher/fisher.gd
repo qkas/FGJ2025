@@ -5,6 +5,7 @@ extends Node3D
 @onready var bobber_initial_position: Vector3 = bobber.position
 
 @onready var fishables: Array[Node] = $Fishables.get_children()
+@onready var reeling: AudioStreamPlayer3D = $Reeling
 
 var cast_strength : float = 5
 
@@ -33,18 +34,21 @@ func throw_hook() -> void:
 	bobber.reparent(get_tree().root)
 	var global_direction = global_transform.basis * Vector3(0, 1.6, -1)
 	bobber.apply_impulse(global_direction * cast_strength)
+	$Woosh.play()
 
 func start_timer() -> void: # called on bobber landed 
 	$FishingTimer.start(randf_range(timer_range_min, timer_range_max))
+	$Splash.play()
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'fishing_reel':
+		reeling.stop()
 		cancel_fishing()
 		$/root/Main.get_random_item()
-		print(animation_player.current_animation)
 
 func start_reeling() -> void: # on timer timeout
 	bobber.reparent($Armature/Skeleton3D/BoneAttachment3D/FishingRod)
 	bobber.freeze = true
 	bobber.is_flying = false
 	animation_player.play('fishing_reel')
+	reeling.play()

@@ -22,6 +22,7 @@ func _ready() -> void:
 		$CanvasLayer/TaskContainer.add_child(task_entry)
 
 func start_game() -> void:
+	$ClickSFX.play()
 	game_started = true
 	boat.animate_camera()
 	$CanvasLayer/MainMenu.hide()
@@ -46,6 +47,7 @@ func clear_message() -> void:
 	$CanvasLayer/Label.text = ""
 
 func quit_game() -> void:
+	$ClickSFX.play()
 	get_tree().quit()
 
 func spawn_fishing_spots() -> void:
