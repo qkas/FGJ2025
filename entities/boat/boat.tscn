@@ -29,12 +29,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 20, 3)]
+"values": [Vector3(2, 20, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_dav00"]
 resource_name = "initialize"
-length = 1.25
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,10 +42,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.23333),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 20, 3), Vector3(0, 8, 10)]
+"values": [Vector3(2, 20, 3), Vector3(2, 8, 10)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,7 +54,7 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.23333),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-1.13446, 0, 0), Vector3(-0.349066, 0, 0)]
@@ -118,7 +118,7 @@ light_color = Color(1, 0.113725, 0.129412, 1)
 light_energy = 3.586
 
 [node name="CameraHolder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.422622, 0.906306, 0, -0.906306, 0.422622, 0, 20, 3)
+transform = Transform3D(1, 0, 0, 0, 0.422622, 0.906306, 0, -0.906306, 0.422622, 2, 20, 3)
 top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]

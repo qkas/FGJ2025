@@ -5,20 +5,18 @@ extends Node3D
 
 const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
-const fishes: Array[String] = ['Swordfish', 'Lionfish', 'Octopus', 'Blue shark']
+const fishes: Array[String] = ['a Swordfish', 'a Lionfish', 'an Octopus', 'a Blue shark']
 
 var game_started: bool = false
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("exit"):
 		quit_game()
-	if Input.is_action_just_pressed("camera_switch"):
-		$Boat.check_distance()
 
 func _ready() -> void:
 	for fish in fishes:
 		var task_entry = TASK_ENTRY.instantiate()
-		task_entry.set_label("Catch a %s." % fish)
+		task_entry.set_label("Catch %s." % fish)
 		$CanvasLayer/TaskContainer.add_child(task_entry)
 
 func start_game() -> void:
@@ -26,6 +24,7 @@ func start_game() -> void:
 	boat.animate_camera()
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/TaskContainer.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func get_random_fish() -> void:
 	print("fish got got")

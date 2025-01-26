@@ -17,6 +17,8 @@ var initialized := false
 
 @onready var foam_camera: Node3D = $"../FoamViewport/Base"
 
+const mouse_sens: float = 1.6
+
 const ACCELERATION: float = 6.0
 const MAX_SPEED: float = 10.0
 const TURN_SPEED: float = 5.0
@@ -27,6 +29,10 @@ var forward_input: float = 0.0
 var turn_input: float = 0.0
 
 var is_input_enabled: bool = false
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and $/root/Main.game_started:
+		camera_holder.rotate_y(deg_to_rad(-event.relative.x * mouse_sens) * 0.1)
 
 func _ready():
 	await get_tree().process_frame
@@ -62,7 +68,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if linear_velocity.length() > MAX_SPEED:
 		linear_velocity = linear_velocity.normalized() * MAX_SPEED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camera_holder.global_rotation.z = 0
 
 func _physics_process(_delta):

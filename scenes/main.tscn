@@ -25,7 +25,7 @@ fog_enabled = true
 background_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ynkkp"]
-size = Vector2(5000, 5000)
+size = Vector2(3000, 3000)
 subdivide_width = 2000
 subdivide_depth = 2000
 

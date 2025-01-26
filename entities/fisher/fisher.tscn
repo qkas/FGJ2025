@@ -8,6 +8,9 @@
 [node name="Fisher" instance=ExtResource("1_if161")]
 script = ExtResource("2_g4r6x")
 
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(-0.009, -1.35896e-09, 5.94021e-17, 0, -3.93402e-10, -0.009, 1.35896e-09, -0.009, 3.93402e-10, 0, 0, 0)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-0.277962, -3.24982, -107.272)
 bones/0/rotation = Quaternion(-0.736219, -0.129511, 0.135831, 0.650198)
@@ -53,8 +56,9 @@ bone_idx = 10
 transform = Transform3D(-38.4586, -67.5047, -62.9608, 75.8491, 15.7641, -63.233, 52.6104, -72.0737, 45.1389, 11.106, 14.393, 26.9757)
 
 [node name="Bobber" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod" index="1" instance=ExtResource("3_p27mk")]
-transform = Transform3D(0.99948, -0.00637507, 0.0316187, 0.0171263, 0.935566, -0.352738, -0.0273319, 0.353095, 0.935189, -0.0082683, 1.74634, -0.708688)
+transform = Transform3D(0.999481, -0.00637507, 0.0316187, 0.0171263, 0.935566, -0.352738, -0.0273319, 0.353095, 0.935189, -0.00597237, 1.83419, -0.704813)
 mass = 1.0
+lock_rotation = true
 buoyancy_power = 2.0
 
 [node name="AnimationPlayer" parent="." index="1"]
@@ -66,6 +70,7 @@ blend_times = [&"fishing_idle", &"fishing_cast", 0.02, &"fishing_idle", &"fishin
 one_shot = true
 
 [node name="CastingTimer" type="Timer" parent="." index="3"]
+wait_time = 1.45
 one_shot = true
 
 [connection signal="on_bobber_landed" from="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" to="." method="start_timer"]
