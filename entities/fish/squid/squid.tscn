@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b84vet2214rbf"]
+
+[ext_resource type="PackedScene" uid="uid://27gltisbn7ut" path="res://entities/fish/squid/Squid.glb" id="1_r6bdo"]
+
+[node name="Squid2" instance=ExtResource("1_r6bdo")]
