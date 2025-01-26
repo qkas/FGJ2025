@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/boat/boat.gd" id="1_v7buv"]
 [ext_resource type="PackedScene" uid="uid://ccyuf7rupd4al" path="res://entities/fisher/fisher.tscn" id="2_mt8hm"]
 [ext_resource type="PackedScene" uid="uid://pl3r3bi0qftk" path="res://entities/boat/BoatModel.glb" id="2_xauyr"]
-[ext_resource type="PackedScene" uid="uid://c5cm1hf23n1wu" path="res://entities/boat/light_cone.tscn" id="4_rlok0"]
+[ext_resource type="PackedScene" uid="uid://c6kcoek2deegc" path="res://entities/boat/light_cone.tscn" id="4_rlok0"]
 
 [sub_resource type="Animation" id="Animation_efn4a"]
 length = 1.5

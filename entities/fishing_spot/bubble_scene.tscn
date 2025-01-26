@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hvh21q682k31"]
+[gd_scene load_steps=9 format=3 uid="uid://hvh21q682k31"]
 
 [ext_resource type="Texture2D" uid="uid://bvt5fbnibbhvo" path="res://ui/bubble-nobg.png" id="1_33w3i"]
 
@@ -8,24 +8,33 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_cblye"]
 gradient = SubResource("Gradient_j0wek")
 
+[sub_resource type="Curve" id="Curve_ls65i"]
+_data = [Vector2(0, 0.357529), 0.0, 0.0, 0, 0, Vector2(0.498965, 0.121622), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_8ui1r"]
+curve_y = SubResource("Curve_ls65i")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqq8c"]
-particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(3, 0.2, 3)
+emission_box_extents = Vector3(5, 0.2, 5)
 angle_min = -360.0
 angle_max = 360.0
 angular_velocity_min = -90.0
 angular_velocity_max = 90.0
-gravity = Vector3(0, 1.2, 0)
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_8ui1r")
+gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_cblye")
 turbulence_enabled = true
-turbulence_noise_strength = 0.1
+turbulence_noise_strength = 0.01
 turbulence_noise_speed_random = 1.0
 turbulence_influence_min = 0.01
 turbulence_influence_max = 0.011
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u18rx"]
-render_priority = 10
+render_priority = 5
 transparency = 1
 no_depth_test = true
 albedo_texture = ExtResource("1_33w3i")

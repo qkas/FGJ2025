@@ -10,6 +10,33 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y56xo"]
 bg_color = Color(0.231373, 0.717647, 0, 0.654902)
 
+[sub_resource type="Animation" id="Animation_v80wc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../TextureRect/Checkmark:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../TextureRect/Checkmark:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_corsa"]
 resource_name = "progress_bar"
 length = 2.0
@@ -27,18 +54,27 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../TextureRect/Checkmark:modulate:a")
+tracks/1/path = NodePath("../../TextureRect/Checkmark:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
+"update": 1,
+"values": [true]
 }
-
-[sub_resource type="Animation" id="Animation_v80wc"]
-length = 0.001
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../TextureRect/Checkmark:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0poy"]
 _data = {
@@ -60,6 +96,7 @@ stretch_mode = 2
 
 [node name="Checkmark" type="Sprite2D" parent="TextureRect"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(16, 16)
 texture = ExtResource("2_e450h")
 
@@ -74,6 +111,7 @@ theme = ExtResource("4_nh2t6")
 text = "Catch a Swordfish"
 
 [node name="ProgressBar" type="ProgressBar" parent="TextMargin"]
+custom_minimum_size = Vector2(0, 5)
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
