@@ -4,8 +4,10 @@ extends Node3D
 @onready var bobber: RigidBody3D = $Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber
 @onready var bobber_initial_position: Vector3 = bobber.position
 
-@onready var fishables: Array[Node] = $Fishables.get_children()
+@onready var fishables: Array[Node] = bobber.get_node('Fishables').get_children()
 
+var fishable_boat_pos : Vector3
+var current_fishable : Node3D
 var cast_strength : float = 5
 
 var timer_range_min: float = 1
@@ -40,11 +42,19 @@ func start_timer() -> void: # called on bobber landed
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'fishing_reel':
 		cancel_fishing()
-		$/root/Main.get_random_item()
-		print(animation_player.current_animation)
+		
+		current_fishable.hide() # hide from bober
+		var index = current_fishable.get_index()
+		$StaticFishables.get_child(index).show()
 
 func start_reeling() -> void: # on timer timeout
 	bobber.reparent($Armature/Skeleton3D/BoneAttachment3D/FishingRod)
 	bobber.freeze = true
 	bobber.is_flying = false
 	animation_player.play('fishing_reel')
+	
+	current_fishable = fishables.pick_random()
+	current_fishable.show()
+	fishable_boat_pos = current_fishable.global_position
+	current_fishable.position = bobber.position
+	current_fishable.rotation = bobber.rotation

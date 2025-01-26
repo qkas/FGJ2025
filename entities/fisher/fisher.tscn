@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccyuf7rupd4al"]
+[gd_scene load_steps=10 format=3 uid="uid://ccyuf7rupd4al"]
 
 [ext_resource type="PackedScene" uid="uid://cjl31u2pmng5r" path="res://entities/fisher/fisher.glb" id="1_if161"]
 [ext_resource type="Script" path="res://entities/fisher/fisher.gd" id="2_g4r6x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cc82fvh86c1y3" path="res://entities/fish/lionfish/lionfish.tscn" id="6_c0oly"]
 [ext_resource type="PackedScene" uid="uid://ddinmtr2h3t2p" path="res://entities/fish/blueshark/blue_shark.tscn" id="7_mmkhw"]
 [ext_resource type="PackedScene" uid="uid://dfpiix67do6rg" path="res://entities/fish/swordfish/sword_fish.tscn" id="8_4nftq"]
+[ext_resource type="PackedScene" uid="uid://b84vet2214rbf" path="res://entities/fish/squid/squid.tscn" id="9_y8m5v"]
 
 [node name="Fisher" instance=ExtResource("1_if161")]
 script = ExtResource("2_g4r6x")
@@ -16,43 +17,43 @@ script = ExtResource("2_g4r6x")
 transform = Transform3D(-0.009, -1.35896e-09, 5.94021e-17, 0, -3.93402e-10, -0.009, 1.35896e-09, -0.009, 3.93402e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-0.277986, -3.24983, -107.272)
-bones/0/rotation = Quaternion(-0.736219, -0.129513, 0.135833, 0.650198)
-bones/1/rotation = Quaternion(0.00302905, 0.00711956, 5.65938e-05, 0.99997)
-bones/2/rotation = Quaternion(0.049775, 0.014337, 0.0018045, 0.998656)
-bones/3/rotation = Quaternion(0.0497404, 0.0143725, 0.00236316, 0.998656)
-bones/4/rotation = Quaternion(-0.0367603, 0.0412881, 0.00804673, 0.998438)
-bones/5/rotation = Quaternion(0.0622378, 0.0713224, -0.0203278, 0.995302)
-bones/7/rotation = Quaternion(0.579243, 0.36063, -0.662079, 0.309959)
-bones/8/position = Vector3(-8.68364e-07, 28.0209, -2.48279e-05)
-bones/8/rotation = Quaternion(0.216565, 0.269303, 0.280387, 0.895521)
-bones/9/position = Vector3(-1.26965e-06, 40.2809, -3.7681e-06)
+bones/0/position = Vector3(-0.277962, -3.24982, -107.272)
+bones/0/rotation = Quaternion(-0.736219, -0.129511, 0.135831, 0.650198)
+bones/1/rotation = Quaternion(0.0030291, 0.00711945, 5.65631e-05, 0.99997)
+bones/2/rotation = Quaternion(0.0497746, 0.0143397, 0.00177529, 0.998656)
+bones/3/rotation = Quaternion(0.0497404, 0.0143726, 0.00236315, 0.998656)
+bones/4/rotation = Quaternion(-0.0367618, 0.0412868, 0.00801365, 0.998439)
+bones/5/rotation = Quaternion(0.0622395, 0.0712693, -0.0203244, 0.995306)
+bones/7/rotation = Quaternion(0.579243, 0.36063, -0.66208, 0.309959)
+bones/8/position = Vector3(-5.59202e-07, 28.0209, 1.46102e-06)
+bones/8/rotation = Quaternion(0.216565, 0.269303, 0.280387, 0.895522)
+bones/9/position = Vector3(-6.59742e-07, 40.2809, -1.94158e-05)
 bones/9/rotation = Quaternion(-0.0302255, -0.0359655, 0.677367, 0.734144)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/position = Vector3(1.66893e-06, 35.0678, 4.74043e-06)
-bones/11/position = Vector3(-12.8994, 16.3737, 0.0775358)
-bones/11/rotation = Quaternion(0.674231, -0.283209, 0.558898, 0.390947)
+bones/10/position = Vector3(7.15255e-07, 35.0678, 1.8794e-06)
+bones/11/position = Vector3(-12.8993, 16.3738, 0.0775319)
+bones/11/rotation = Quaternion(0.674231, -0.283209, 0.558898, 0.390946)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/position = Vector3(6.60747e-07, 27.982, 2.27483e-05)
+bones/12/position = Vector3(-1.4921e-07, 27.982, 6.06978e-06)
 bones/12/rotation = Quaternion(0.162042, -0.186407, -0.42513, 0.870781)
-bones/13/position = Vector3(1.51312e-06, 40.2481, 8.19796e-06)
-bones/13/rotation = Quaternion(-0.0174719, 0.0350273, -0.661631, 0.748807)
-bones/14/position = Vector3(1.09673e-05, 35.0722, 3.53158e-06)
-bones/15/rotation = Quaternion(0.0243033, 0.127848, 0.989044, -0.0696838)
+bones/13/position = Vector3(-5.59727e-06, 40.2481, 5.13589e-07)
+bones/13/rotation = Quaternion(-0.0174721, 0.0350273, -0.661631, 0.748807)
+bones/14/position = Vector3(2.38419e-06, 35.0722, -2.83125e-07)
+bones/15/rotation = Quaternion(0.0243002, 0.127849, 0.989044, -0.0696839)
 bones/15/scale = Vector3(1.00001, 1, 1)
-bones/16/rotation = Quaternion(-0.256568, -0.076413, 0.0483511, 0.962287)
-bones/17/rotation = Quaternion(0.480071, -0.0352696, -0.0257065, 0.876143)
-bones/18/rotation = Quaternion(0.340629, -0.0773391, 0.025422, 0.936667)
+bones/16/rotation = Quaternion(-0.256571, -0.0764129, 0.0483516, 0.962286)
+bones/17/rotation = Quaternion(0.480073, -0.0352699, -0.0257068, 0.876142)
+bones/18/rotation = Quaternion(0.340628, -0.0773386, 0.0254221, 0.936667)
 bones/18/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.139754, -0.128656, 0.976835, 0.0985388)
-bones/21/rotation = Quaternion(-0.149973, 0.0788858, -0.0415403, 0.984662)
-bones/22/rotation = Quaternion(0.545319, 0.288831, 0.0281352, 0.786392)
+bones/20/rotation = Quaternion(-0.139754, -0.128656, 0.976835, 0.0985391)
+bones/21/rotation = Quaternion(-0.149973, 0.0788853, -0.0415402, 0.984662)
+bones/22/rotation = Quaternion(0.545319, 0.288831, 0.0281361, 0.786392)
 bones/22/scale = Vector3(1, 1, 1)
-bones/23/position = Vector3(4.88013e-07, 35.4022, -2.52613e-06)
-bones/23/rotation = Quaternion(0.324351, 0.0781209, -0.0250961, 0.942371)
+bones/23/position = Vector3(2.15771e-06, 35.4022, -3.50113e-06)
+bones/23/rotation = Quaternion(0.324349, 0.0781219, -0.0250964, 0.942372)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.376281, -0.743915, -0.552272, 0.312708, 0.663074, -0.680108, 0.872139, 0.0832119, 0.48213, 21.7498, 38.3085, -122.476)
+transform = Transform3D(0.376234, -0.743915, -0.552304, 0.312689, 0.663078, -0.680113, 0.872166, 0.0831822, 0.482086, 21.7492, 38.3081, -122.475)
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
@@ -63,6 +64,29 @@ transform = Transform3D(-38.4586, -67.5047, -62.9608, 75.8491, 15.7641, -63.233,
 transform = Transform3D(0.999482, -0.00637488, 0.031619, 0.0171266, 0.935567, -0.352738, -0.0273324, 0.353095, 0.935191, 0.0359779, 2.04586, -0.578226)
 mass = 1.0
 buoyancy_power = 2.0
+
+[node name="Fishables" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" index="8"]
+transform = Transform3D(0.999999, 0.00041931, 0.000279535, -0.000419133, 1, -0.000212345, -0.000279389, 0.000212651, 1, -0.0769009, -3.2053, -0.109475)
+
+[node name="Boot" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="0" instance=ExtResource("5_gp521")]
+transform = Transform3D(0.0216566, 0.945756, -0.324156, -0.998133, 0.00193304, -0.0610445, -0.0571067, 0.324873, 0.944032, 1.78606, 0.650067, 2.6598)
+visible = false
+
+[node name="Lionfish" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="1" instance=ExtResource("6_c0oly")]
+transform = Transform3D(0.574028, -0.0178012, 0.818642, 0.0378798, 0.99927, -0.00483223, -0.81796, 0.0337839, 0.574283, 0.783354, 0.37095, 1.39374)
+visible = false
+
+[node name="BlueShark" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="2" instance=ExtResource("7_mmkhw")]
+transform = Transform3D(-0.191092, 0.0110559, 0.673322, 0.0313355, 0.699293, -0.00258925, -0.672683, 0.0294345, -0.191394, 1.1521, 0.375816, 3.72916)
+visible = false
+
+[node name="Swordfish" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="3" instance=ExtResource("8_4nftq")]
+transform = Transform3D(-0.476905, 0.00494431, 0.878941, 0.0646711, 0.997472, 0.0294788, -0.876573, 0.0709007, -0.476019, -0.619289, -0.0980831, 3.31238)
+visible = false
+
+[node name="Squid" parent="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber/Fishables" index="4" instance=ExtResource("9_y8m5v")]
+transform = Transform3D(-0.0582997, -0.0089923, 0.998259, 0.0588763, 0.998188, 0.0124301, -0.996562, 0.0594984, -0.0576647, -4.16147, 0.0321548, 1.94096)
+visible = false
 
 [node name="AnimationPlayer" parent="." index="1"]
 unique_name_in_owner = true
@@ -77,21 +101,30 @@ one_shot = true
 wait_time = 1.45
 one_shot = true
 
-[node name="Fishables" type="Node3D" parent="." index="4"]
-transform = Transform3D(0.898292, -0.0229127, 0.0504988, 0.0212176, 0.899231, 0.030594, -0.0512343, -0.0293448, 0.898064, -0.0280221, 2.38796, -1.48418)
+[node name="StaticFishables" type="Node3D" parent="." index="4"]
+transform = Transform3D(0.898292, -0.0229127, 0.0504988, 0.0212176, 0.899231, 0.030594, -0.0512343, -0.0293448, 0.898064, -0.0280221, -0.499621, -1.48418)
 
-[node name="Boot" parent="Fishables" index="0" instance=ExtResource("5_gp521")]
+[node name="Boot" parent="StaticFishables" index="0" instance=ExtResource("5_gp521")]
+transform = Transform3D(0.0216566, 0.945756, -0.324156, -0.998133, 0.00193304, -0.0610445, -0.0571067, 0.324873, 0.944032, 1.78606, 0.650067, 2.6598)
 visible = false
 
-[node name="Lionfish" parent="Fishables" index="1" instance=ExtResource("6_c0oly")]
+[node name="Lionfish" parent="StaticFishables" index="1" instance=ExtResource("6_c0oly")]
+transform = Transform3D(0.574028, -0.0178012, 0.818642, 0.0378798, 0.99927, -0.00483223, -0.81796, 0.0337839, 0.574283, 0.783354, 0.37095, 1.39374)
 visible = false
 
-[node name="BlueShark" parent="Fishables" index="2" instance=ExtResource("7_mmkhw")]
+[node name="BlueShark" parent="StaticFishables" index="2" instance=ExtResource("7_mmkhw")]
+transform = Transform3D(-0.191092, 0.0110559, 0.673322, 0.0313355, 0.699293, -0.00258925, -0.672683, 0.0294345, -0.191394, 1.1521, 0.375816, 3.72916)
 visible = false
 
-[node name="Swordfish" parent="Fishables" index="3" instance=ExtResource("8_4nftq")]
+[node name="Swordfish" parent="StaticFishables" index="3" instance=ExtResource("8_4nftq")]
+transform = Transform3D(-0.476905, 0.00494431, 0.878941, 0.0646711, 0.997472, 0.0294788, -0.876573, 0.0709007, -0.476019, -0.619289, -0.0980831, 3.31238)
+visible = false
+
+[node name="Squid" parent="StaticFishables" index="4" instance=ExtResource("9_y8m5v")]
+transform = Transform3D(-0.0582997, -0.00899229, 0.998259, 0.0588763, 0.998188, 0.0124301, -0.996562, 0.0594984, -0.0576647, -1.67573, 0.851748, 2.10955)
 visible = false
 
 [connection signal="on_bobber_landed" from="Armature/Skeleton3D/BoneAttachment3D/FishingRod/Bobber" to="." method="start_timer"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="FishingTimer" to="." method="start_reeling"]
 [connection signal="timeout" from="CastingTimer" to="." method="throw_hook"]

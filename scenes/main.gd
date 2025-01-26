@@ -5,7 +5,7 @@ extends Node3D
 
 const TASK_ENTRY = preload("res://ui/task_entry.tscn")
 
-var fishes: Array[String] = ['Swordfish', 'Lionfish', 'Squid', 'Blue shark']
+var fishes: Array[String] = ['Boot', 'Swordfish', 'Lionfish', 'Squid', 'Blue shark']
 
 var is_pike_roaming: bool = false
 

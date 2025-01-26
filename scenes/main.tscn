@@ -65,6 +65,7 @@ linear_damp = 4.0
 min_max_rotation = Vector3(1, 6, 1)
 
 [node name="Pike" parent="Boat" instance=ExtResource("4_ke2xv")]
+transform = Transform3D(1.15911, -0.310582, 0, 0.310582, 1.15911, 0, 0, 0, 1.2, 4, -50, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
