@@ -28,9 +28,9 @@ fog_enabled = true
 background_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ynkkp"]
-size = Vector2(3000, 3000)
-subdivide_width = 2000
-subdivide_depth = 2000
+size = Vector2(1200, 1200)
+subdivide_width = 800
+subdivide_depth = 800
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o5qwo"]
 vertices = PackedVector3Array(-249.5, 1, -249.5, -249.5, 1, 249.5, 249.5, 1, 249.5, 249.5, 1, -249.5)
@@ -176,7 +176,7 @@ size = Vector3(500, 1, 500)
 [node name="ChasingPikes" type="Node3D" parent="."]
 
 [node name="ChasingPike" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.8376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.2921, 0, 177.966)
 script = ExtResource("6_bahyj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike"]
@@ -263,6 +263,24 @@ shape = SubResource("CapsuleShape3D_xhw7n")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike4"]
 
 [node name="Bubbles" parent="ChasingPikes/ChasingPike4" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ChasingPike6" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.9397, 0, 117.056)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike6"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike6" instance=ExtResource("7_yxg2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/StartGameButton" to="." method="start_game"]

@@ -125,7 +125,7 @@ top_level = true
 [node name="Camera3D" type="Camera3D" parent="CameraHolder"]
 cull_mask = 1048573
 current = true
-far = 500.0
+far = 400.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraHolder"]
 libraries = {
