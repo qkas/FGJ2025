@@ -52,24 +52,47 @@ min_max_rotation = Vector3(1, 6, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 2
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_top = 36.0
+offset_right = 124.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme = ExtResource("3_uwe7x")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 44
+text = "THE BIG PIKE"
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -132.0
-offset_right = 250.0
-offset_bottom = -60.0
+offset_left = 33.0
+offset_top = -145.0
+offset_right = 233.0
+offset_bottom = -57.0
 grow_vertical = 0
 theme = ExtResource("3_uwe7x")
 
-[node name="StartGameButton" type="Button" parent="CanvasLayer/MainMenu"]
+[node name="StartGameButton" type="Button" parent="CanvasLayer/MainMenu/ButtonsContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("3_uwe7x")
 text = "Start game"
 
-[node name="QuitGameButton" type="Button" parent="CanvasLayer/MainMenu"]
+[node name="QuitGameButton" type="Button" parent="CanvasLayer/MainMenu/ButtonsContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Quit game"
