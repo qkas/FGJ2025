@@ -20,6 +20,9 @@ func _ready() -> void:
 		var task_entry = TASK_ENTRY.instantiate()
 		task_entry.set_label("Catch a %s." % fish)
 		$CanvasLayer/TaskContainer.add_child(task_entry)
+		
+func _physics_process(delta: float) -> void:
+	get_tree().call_group("chasing_pike", "update_target_location",boat.global_transform.origin)
 
 func start_game() -> void:
 	game_started = true

@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtlt37yc6h5f2"]
+[gd_scene load_steps=17 format=3 uid="uid://dtlt37yc6h5f2"]
 
 [ext_resource type="Script" path="res://water/water-manager.gd" id="1_o5y5g"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_o58l6"]
 [ext_resource type="PackedScene" uid="uid://b2gkd0aemcldr" path="res://entities/boat/boat.tscn" id="3_ibbvs"]
 [ext_resource type="Theme" uid="uid://ps5kwnepi662" path="res://ui/ui_theme.tres" id="3_uwe7x"]
 [ext_resource type="Material" uid="uid://cakn2wicml134" path="res://water/water_material.tres" id="5_jxwx4"]
+[ext_resource type="Script" path="res://scenes/chasing_pike.gd" id="6_bahyj"]
+[ext_resource type="PackedScene" uid="uid://hvh21q682k31" path="res://entities/fishing_spot/bubble_scene.tscn" id="7_yxg2c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xcn30"]
 
@@ -28,6 +30,18 @@ background_mode = 1
 size = Vector2(3000, 3000)
 subdivide_width = 2000
 subdivide_depth = 2000
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_o5qwo"]
+vertices = PackedVector3Array(-249.5, 1, -249.5, -249.5, 1, 249.5, 249.5, 1, 249.5, 249.5, 1, -249.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d410u"]
+albedo_color = Color(1, 0.372549, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0dct4"]
+material = SubResource("StandardMaterial3D_d410u")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xhw7n"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_o58l6")
@@ -147,6 +161,105 @@ surface_material_override/0 = ExtResource("5_jxwx4")
 remote_path = NodePath("../../FoamViewport/Base")
 update_rotation = false
 update_scale = false
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_o5qwo")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+visible = false
+size = Vector3(500, 1, 500)
+
+[node name="ChasingPikes" type="Node3D" parent="."]
+
+[node name="ChasingPike" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.8376)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ChasingPike5" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.905, 0, -31.5461)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike5"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike5" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ChasingPike2" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.919, 0, 27.8376)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike2"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike2" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ChasingPike3" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.1403, 0, -240.372)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike3"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike3" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ChasingPike4" type="CharacterBody3D" parent="ChasingPikes" groups=["chasing_pike"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.2927, 0, -240.372)
+script = ExtResource("6_bahyj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasingPikes/ChasingPike4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+visible = false
+mesh = SubResource("CapsuleMesh_0dct4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasingPikes/ChasingPike4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+shape = SubResource("CapsuleShape3D_xhw7n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="ChasingPikes/ChasingPike4"]
+
+[node name="Bubbles" parent="ChasingPikes/ChasingPike4" instance=ExtResource("7_yxg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/StartGameButton" to="." method="start_game"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/ButtonsContainer/QuitGameButton" to="." method="quit_game"]
