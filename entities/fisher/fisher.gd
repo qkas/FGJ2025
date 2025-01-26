@@ -27,9 +27,6 @@ func cancel_fishing() -> void:
 	bobber.position = bobber_initial_position
 	bobber.reparent(self)
 
-func reel_hook() -> void:
-	pass
-
 func throw_hook() -> void:
 	bobber.reparent(get_tree().root)
 	bobber.freeze = false
@@ -46,4 +43,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$/root/Main.get_random_item()
 
 func start_reeling() -> void: # on timer timeout
+	bobber.reparent($Armature/Skeleton3D/BoneAttachment3D/FishingRod)
+	bobber.freeze = true
+	bobber.is_flying = false
 	animation_player.play('fishing_reel')

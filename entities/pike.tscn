@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://da35ad7h1mx1f"]
+
+[ext_resource type="PackedScene" uid="uid://ft1pxyf54ff0" path="res://entities/fish/pike/PikeTop.glb" id="1_tfhto"]
+[ext_resource type="PackedScene" uid="uid://byh0duf8mxer2" path="res://entities/fish/pike/pike_bottom.tscn" id="2_84oda"]
+
+[node name="Pike" type="Node3D"]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 10, -39, 0)
+
+[node name="PikeTop" parent="." instance=ExtResource("1_tfhto")]
+
+[node name="PikeBottom" parent="." instance=ExtResource("2_84oda")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
