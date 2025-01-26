@@ -20,6 +20,7 @@ ambient_light_source = 3
 ambient_light_color = Color(0.710464, 0.710464, 0.710464, 1)
 reflected_light_source = 2
 tonemap_mode = 2
+tonemap_exposure = 0.2
 fog_enabled = true
 
 [sub_resource type="Environment" id="Environment_18f0k"]

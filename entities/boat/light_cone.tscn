@@ -1,58 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5cm1hf23n1wu"]
+[gd_scene load_steps=3 format=3 uid="uid://c6kcoek2deegc"]
 
-[ext_resource type="PackedScene" uid="uid://xjnwk0fqoi3p" path="res://entities/boat/LightCone.glb" id="1_4n3d7"]
-[ext_resource type="Texture2D" uid="uid://8rspki52s4vl" path="res://entities/boat/LightConeGradientTransparent.png" id="2_mnguq"]
+[ext_resource type="PackedScene" uid="uid://domh827q8xain" path="res://entities/boat/LightCone.glb" id="1_xvn3b"]
+[ext_resource type="Material" uid="uid://duuvhy2w4stdl" path="res://entities/boat/light_cone.tres" id="2_7y5f4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar17r"]
-resource_name = "LightCone"
-render_priority = 1
-transparency = 1
-disable_ambient_light = true
-albedo_color = Color(1, 1, 1, 0.0588235)
-albedo_texture = ExtResource("2_mnguq")
-roughness = 0.834862
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 2.88
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_w1luj"]
-_surfaces = [{
-"aabb": AABB(-4.77786, -13.0276, -6.1086, 9.55573, 13.0276, 9.49988),
-"format": 34896613377,
-"index_count": 192,
-"index_data": PackedByteArray("AAABACAAAQACACAAAgADACAAAwAEACAABAAFACAABQAGACAABgAHACAABwAIACAACAAJACAACQAKACAACgALACAACwAMACAADAANACAADQAOACAADgAPACAADwAQACAAEAARACAAEQASACAAEgATACAAEwAUACAAFAAVACAAFQAWACAAFgAXACAAFwAYACAAGAAZACAAGQAaACAAGgAbACAAGwAcACAAHAAdACAAHQAeACAAHgAfACAAHwAAACAAIQAiAEEAIgAjAEEAIwAkAEEAJAAlAEEAJQAmAEEAJgAnAEEAJwAoAEEAKAApAEEAKQAqAEEAKgArAEEAKwAsAEEALAAtAEEALQAuAEEALgAvAEEALwAwAEEAMAAxAEEAMQAyAEEAMgAzAEEAMwA0AEEANAA1AEEANQA2AEEANgA3AEEANwA4AEEAOAA5AEEAOQA6AEEAOgA7AEEAOwA8AEEAPAA9AEEAPQA+AEEAPgA/AEEAPwBAAEEAQAAhAEEA"),
-"name": "LightCone",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 66,
-"vertex_data": PackedByteArray("/39FFAAAAAD4mBMUdQIAAPuwfxO+CQAAHMeQEpIVAACB2k0RfSUAAGzqxA/iOAAAQPYDDgNPAACJ/RwMBmcAAP//Igr/fwAAif0oCPiYAABA9kEG+7AAAGzqgQQcxwAAgdr3AoHaAAAcx7UBbOoAAPuwxQBA9gAA+JgxAIn9AAD/fwAA//8AAAZnMQCJ/QAAA0/FAED2AADiOLUBbOoAAH0l9wKB2gAAkhWBBBzHAAC+CUEG+7AAAHUCKAj4mAAAAAAiCv9/AAB1AhwMBmcAAL4JAw4DTwAAkhXED+I4AAB9JU0RfSUAAOI4kBKSFQAAA09/E74JAAAGZxMUdQIAAP9///+cpAAA/391MXVNAACxi10xnE4AAPCWGDEGUgAATqGoMJBXAABjqhEwBV8AANixWS8aaAAAYreGLnhyAADMuqItt30AAPO7tSxpiQAAzLrIKxuVAABit+QqWqAAANixEiq4qgAAY6paKc2zAABOocMoQrsAAPCWUyjMwAAAsYsNKDbEAAD/f/YnXcUAAE10DSg2xAAADmlTKMzAAACwXsMoQrsAAJtVWinNswAAJk4SKriqAACcSOQqWqAAADJFyCsblQAAC0S1LGmJAAAyRaItt30AAJxIhi54cgAAJk5ZLxpoAACbVREwBV8AALBeqDCQVwAADmkYMQZSAABNdF0xnE4AAP9/Ad6MnwAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_h0y7y"]
-resource_name = "LightCone_Cone_001"
-_surfaces = [{
-"aabb": AABB(-4.77786, -13.0276, -6.1086, 9.55573, 13.0276, 9.49988),
-"attribute_data": PackedByteArray("/Jxn5W2cZ+XHmmflGZhn5X6UZ+UakGflF4tn5aeFZ+X/f2flV3pn5ed0Z+Xkb2flgGtn5eVnZ+U3ZWflkWNn5QJjZ+WRY2flN2Vn5eVnZ+WAa2fl5G9n5ed0Z+VXemfl/39n5aeFZ+UXi2flGpBn5X6UZ+UZmGflx5pn5W2cZ+X/f/AB/Jxn5W2cZ+XHmmflGZhn5X6UZ+UakGflF4tn5aeFZ+X/f2flV3pn5ed0Z+Xkb2flgGtn5eVnZ+U3ZWflkWNn5QJjZ+WRY2flN2Vn5eVnZ+WAa2fl5G9n5ed0Z+VXemfl/39n5aeFZ+UXi2flGpBn5X6UZ+UZmGflx5pn5W2cZ+X/f/AB"),
-"format": 34896613399,
-"index_count": 192,
-"index_data": PackedByteArray("AAABACAAAQACACAAAgADACAAAwAEACAABAAFACAABQAGACAABgAHACAABwAIACAACAAJACAACQAKACAACgALACAACwAMACAADAANACAADQAOACAADgAPACAADwAQACAAEAARACAAEQASACAAEgATACAAEwAUACAAFAAVACAAFQAWACAAFgAXACAAFwAYACAAGAAZACAAGQAaACAAGgAbACAAGwAcACAAHAAdACAAHQAeACAAHgAfACAAHwAAACAAIQAiAEEAIgAjAEEAIwAkAEEAJAAlAEEAJQAmAEEAJgAnAEEAJwAoAEEAKAApAEEAKQAqAEEAKgArAEEAKwAsAEEALAAtAEEALQAuAEEALgAvAEEALwAwAEEAMAAxAEEAMQAyAEEAMgAzAEEAMwA0AEEANAA1AEEANQA2AEEANgA3AEEANwA4AEEAOAA5AEEAOQA6AEEAOgA7AEEAOwA8AEEAPAA9AEEAPQA+AEEAPgA/AEEAPwBAAEEAQAAhAEEA"),
-"material": SubResource("StandardMaterial3D_ar17r"),
-"name": "LightCone",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 66,
-"vertex_data": PackedByteArray("/39FFAAAMBP4mBMUdQIP+PuwfxO+CSDwHMeQEpIVMuiB2k0RfSVE4GzqxA/iOFnYQPYDDgNPcNCJ/RwMBmeJyP//Igr/f6fAif0oCPiYzLhA9kEG+7D5sGzqgQQcxzapgdr3AoHajqEcx7UBbOoVmvuwxQBA9giT+JgxAIn9Fo3/fwAA//9pAQZnMQCJ/d0BA0/FAED2tQPiOLUBbOqFBX0l9wKB2kkHkhWBBBzH+wi+CUEG+7CXCnUCKAj4mBsMAAAiCv9/gQ11AhwMBmfHDr4JAw4DT+kPkhXED+I44xB9JU0RfSW0EeI4kBKSFVkSA09/E74J0BIGZxMUdQIXE/9///+cpCot/391MXVNmw2xi10xnE4A+PCWGDEGUgLwTqGoMJBXBOhjqhEwBV8H4NixWS8aaAzYYreGLnhyEdDMuqItt30ZyPO7tSxpiSPAzLrIKxuVMLhit+QqWqBBsNixEiq4qlmoY6paKc2zfKBOocMoQruxmPCWUyjMwBSRsYsNKDbEDYr/f/YnXcUFAU10DSg2xHQBDmlTKMzA4gKwXsMoQrtHBJtVWinNs5wFJk4SKriq3gacSOQqWqAJCDJFyCsblRoJC0S1LGmJDwoyRaItt33oCpxIhi54cqMLJk5ZLxpoPgybVREwBV+9DLBeqDCQVx4NDmkYMQZSYw1NdF0xnE6MDf9/Ad6Mn98szv1IfdOZUAHimqAC95v2AxSdWQVFntIGjp9qCPqgLgqZojEMg6SPDtKmbRHDqRIVsa3yGV6z/CCAvE8sHc4lQn/xQACc8hcKnPPdEoD0tBpQ9eEhE/aZKM72BS+D90k1OfiEO/D41UGu+V1IdvpAT077rlY8/OFeSv0oaIT++HLm1hkpmv5efgWTpAChk0wBTJT+AQqVwALglZgD1ZaPBOuXrAUwmf8Gs5qbCIecmwrcnjcN/aHLEJKmHhZDrikfs76aMgn3HADJ95cKePi8Exr53Rux+UUjQfotKsv6wTBP+yU3z/t3PUz81kPF/GFKPv06Ubf9ilg1/odgu/54aVD/w3Oz1m4p")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_w1luj")
-
-[node name="LightCone" instance=ExtResource("1_4n3d7")]
+[node name="LightCone" instance=ExtResource("1_xvn3b")]
 
 [node name="Cone_001" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.105032, -0.994469, 0, 0.994469, 0.105032, 0, -0.0207238, 0.121979)
-mesh = SubResource("ArrayMesh_h0y7y")
+material_override = ExtResource("2_7y5f4")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.908894, 0.417026, 0, -0.417026, 0.908894, 0, 0, 0.0336289)
+transform = Transform3D(1, 0, 0, 0, 0.981494, 0.191494, 0, -0.191494, 0.981494, 0, 7.13761, -2.10217)
 light_energy = 16.0
